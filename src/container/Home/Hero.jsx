@@ -34,7 +34,7 @@ const Hero = () => {
       <header className="w-full h-[450px] md:h-[500px] relative">
         {randomMovie && (
           <section className="w-full h-full absolute">
-            <div className="w-full h-full bg-[#d9008d] opacity-40 absolute z-10" />
+            <div className="w-full h-full bg-pink opacity-40 absolute z-10" />
             <LazyImg
               src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
               alt="movie-poster"
@@ -58,7 +58,7 @@ const Hero = () => {
               onKeyUp={searchQueryHandler}
             />
             <button
-              className="w-28 sm:w-36 h-12 sm:h-14 bg-[#d9008d] absolute right-0 rounded-3xl font-medium text-base sm:text-lg"
+              className="w-28 sm:w-36 h-12 sm:h-14 bg-pink absolute right-0 rounded-3xl font-medium text-base sm:text-lg"
               onClick={SearchHandle}
             >
               Search
