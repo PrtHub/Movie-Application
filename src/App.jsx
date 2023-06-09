@@ -4,6 +4,8 @@ import { MediaDetails, Home, People, Search, PeopleDetails } from "./pages"
 import { NowPlaying, Popular, TopRated, Upcoming } from "./pages/Movie"
 import { AiringToday, OnAir, PopularTv, TopTv } from "./pages/Tv"
 
+import './App.css'
+
 const App = () => {
   return (
     <>

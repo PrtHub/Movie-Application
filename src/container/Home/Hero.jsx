@@ -38,7 +38,7 @@ const Hero = () => {
             <LazyImg
               src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
               alt="movie-poster"
-              className="h-full w-full object-cover object-center"
+              className="w-full h-full  object-cover object-center"
             />
           </section>
         )}
@@ -58,7 +58,7 @@ const Hero = () => {
               onKeyUp={searchQueryHandler}
             />
             <button
-              className="w-28 sm:w-36 h-12 sm:h-14 bg-pink absolute right-0 rounded-3xl font-medium text-base sm:text-lg"
+              className="w-28 sm:w-36 h-12 sm:h-14 bg-pink absolute right-0 rounded-3xl font-medium text-base sm:text-lg "
               onClick={SearchHandle}
             >
               Search

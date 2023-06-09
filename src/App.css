@@ -7,6 +7,16 @@
   scroll-behavior: smooth;
 }
 
+body {
+  background-color:  black;
+  color: white;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.lazy-load-image-background {
+  width: 100%;
+  height: 100%;
+}
 
 
 /* button #d9008d  */
