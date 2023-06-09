@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         source: ['Source Sans 3','sans-serif']
+      },
+      colors: {
+        'pink': "#d9008d"
       }
     },
   },
