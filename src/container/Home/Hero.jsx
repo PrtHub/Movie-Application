@@ -1,13 +1,32 @@
+import { useState } from "react";
 import { useGetMovieQuery } from "../../redux/TMDB";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+
   const { data: movies, isFetching, error } = useGetMovieQuery();
 
   const randomIndex = Math.floor(Math.random() * movies?.results?.length);
-
   const randomMovie = movies?.results[randomIndex];
 
   if (isFetching) return " Loading....";
+  if(error) return "Something went wrong";
+
+  const searchQueryHandler = (e) => {
+    e.preventDefault();
+    if (e.key === "Enter" && query.length > 0) {
+      navigate(`/search/${query}`);
+    }
+  };
+
+  const SearchHandle = (e) => {
+    e.preventDefault();
+    if (query.length > 0) {
+      navigate(`/search/${query}`);
+    }
+  };
 
   return (
     <>
@@ -34,10 +53,13 @@ const Hero = () => {
               type="text"
               placeholder="Search for a movie or tv show...."
               className="w-full h-12 sm:h-14 bg-white outline-none border-none rounded-3xl px-5 text-gray-400 text-base sm:text-lg"
-              // onChange={(e) => setQuery(e.target.value)}
-              // onKeyUp={searchQueryHandler}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyUp={searchQueryHandler}
             />
-            <button className="w-28 sm:w-36 h-12 sm:h-14 bg-[#d9008d] absolute right-0 rounded-3xl font-medium text-base sm:text-lg">
+            <button
+              className="w-28 sm:w-36 h-12 sm:h-14 bg-[#d9008d] absolute right-0 rounded-3xl font-medium text-base sm:text-lg"
+              onClick={SearchHandle}
+            >
               Search
             </button>
           </section>
