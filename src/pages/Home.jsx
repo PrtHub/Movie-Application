@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+import SectionWrapper from "../Hoc/SectionWrapper";
 import { Hero, Trending } from "../container";
 
 const Home = () => {
@@ -10,5 +12,6 @@ const Home = () => {
     </>
   );
 };
+
 
 export default Home;
