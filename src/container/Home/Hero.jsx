@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGetMovieQuery } from "../../redux/TMDB";
 import { useNavigate } from "react-router-dom";
+import { LazyImg } from "../../components";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Hero = () => {
         {randomMovie && (
           <section className="w-full h-full absolute">
             <div className="w-full h-full bg-[#d9008d] opacity-40 absolute z-10" />
-            <img
+            <LazyImg
               src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
               alt="movie-poster"
               className="h-full w-full object-cover object-center"
