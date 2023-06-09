@@ -7,7 +7,7 @@ import { AiringToday, OnAir, PopularTv, TopTv } from "./pages/Tv"
 const App = () => {
   return (
     <>
-    <section className="w-full mx-auto overflow-hidden font-poppins">
+    <section className="w-full mx-auto overflow-hidden">
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
