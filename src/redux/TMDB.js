@@ -5,10 +5,12 @@ export const tmdbApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.themoviedb.org/3",
     prepareHeaders: (headers) => {
-      headers.set("X-RapidAPI-Key", import.meta.env.VITE_REACT_API_KEY);
-      headers.set("X-RapidAPI-Host", "api.themoviedb.org");
-
-      return headers;
+      const token = import.meta.env.VITE_REACT_API_TOKEN  
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`)
+      }
+  
+      return headers
     },
   }),
   endpoints: (builder) => ({
