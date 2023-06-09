@@ -1,4 +1,3 @@
-import SectionWrapper from "../Hoc/SectionWrapper"
 
 
 const Navbar = () => {
@@ -7,4 +6,4 @@ const Navbar = () => {
   )
 }
 
-export default SectionWrapper(Navbar)
+export default (Navbar)

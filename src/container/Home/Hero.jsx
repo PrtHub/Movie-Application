@@ -2,7 +2,11 @@
 
 const Hero = () => {
   return (
-    <div>Hero</div>
+    <>
+    <div className="w-full h-[450px] md:h-[550px]">
+     
+    </div>
+    </>
   )
 }
 
