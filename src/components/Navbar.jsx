@@ -25,7 +25,7 @@ const Navbar = () => {
         <main className="w-full max-w-7xl mx-auto flex items-center justify-between gap-10 px-10 sm:px-20">
           <section className="w-full flex items-center justify-start gap-10 sm:gap-14">
             <section className="font-bold text-2xl flex items-center gap-2">
-              <BiMoviePlay />
+              <BiMoviePlay className="bg-pink p-[6px] rounded-full text-4xl"/>
               <Link to="/">TMDB</Link>
             </section>
             <ul className="hidden sm:flex items-center justify-center gap-5 sm:gap-10 font-semibold text-lg">
