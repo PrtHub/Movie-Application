@@ -3,11 +3,13 @@ import Footer from "./Footer";
 import LazyImg from "./LazyImg";
 import MovieCard from "./MovieCard";
 import TabSwitch from "./TabSwitch";
+import CircleRating from "./CircleRating";
 
 export {
     Navbar,
     Footer,
     LazyImg,
     MovieCard,
-    TabSwitch
+    TabSwitch,
+    CircleRating
 }
