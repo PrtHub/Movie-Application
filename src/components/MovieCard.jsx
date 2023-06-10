@@ -1,14 +1,21 @@
 /* eslint-disable react/prop-types */
 
+import { useNavigate, useParams } from "react-router-dom";
 import CircleRating from "./CircleRating";
 import LazyImg from "./LazyImg";
 
 const MovieCard = ({ Trending, isFetching, error }) => {
-
+  const { id } = useParams()
+  const navigate = useNavigate();
     const formatDate = (dateStr) => {
         const options = { month: 'short', day: '2-digit', year: 'numeric'}
         const date = new Date(dateStr)
         return date.toLocaleDateString('en-US', options)
+    }
+
+    const handleClick = (e) => {
+      e.preventDefault();
+      navigate(`/mediaDetails/${Trending.id}`)
     }
 
     if(error) return "Something went wrong"
@@ -25,12 +32,11 @@ const MovieCard = ({ Trending, isFetching, error }) => {
       );
     };
   
-
   return (
     <>
       {!isFetching ? (
         <main className="w-40 h-fit flex flex-col items-start justify-start gap-5">
-          <section className="w-full h-full relative">
+          <section className="w-full h-full relative cursor-pointer" onClick={handleClick}>
             <LazyImg
               src={`https://image.tmdb.org/t/p/original${Trending.poster_path}`}
               alt="Poster"
