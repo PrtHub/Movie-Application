@@ -45,7 +45,7 @@ const Hero = () => {
         {!isFetching ? (
           randomMovie && (
             <section className="w-full h-full absolute">
-              <div className="w-full h-full bg-pink opacity-40 absolute z-10" />
+              <div className="w-full h-full bg-[#f133af] opacity-40 absolute z-10" />
               <LazyImg
                 src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
                 alt="movie-poster"
