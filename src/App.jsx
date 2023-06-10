@@ -9,7 +9,7 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      <section className="w-full mx-auto overflow-hidden">
+      <section className="w-full mx-auto overflow-hidden bg-black">
             <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

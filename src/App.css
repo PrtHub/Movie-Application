@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color:  black;
+  background-color:#d9008d;
   color: white;
   font-family: 'Source Sans 3', sans-serif;
 }
@@ -30,6 +30,33 @@ body {
 .animate-slide {
   animation: slide 1.5s infinite linear;
 }
+
+.slide-bottom {
+	-webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 
 /* button #d9008d  */
 /* skeleton #262728 */
