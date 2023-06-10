@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [selectedCategory, setSelectedCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [toggle, setToggle] = useState(false)
 
   const handleCategory = (category) => {
@@ -29,7 +29,7 @@ const Navbar = () => {
                 {selectedCategory === "movies" && (
                   <ul
                     className="bg-white w-40 h-fit text-black font-normal flex flex-col items-start justify-start gap-2 absolute top-9 z-50 py-4 px-6 rounded"
-                    onMouseLeave={() => setSelectedCategory(false)}
+                    onMouseLeave={() => setSelectedCategory(null)}
                   >
                     <Link to="/movie/nowplaying">Now Playing</Link>
                     <Link to="/movie/popular">Popular</Link>
@@ -46,7 +46,7 @@ const Navbar = () => {
                 {selectedCategory === "tv" && (
                   <ul
                     className="bg-white w-40 h-fit text-black font-normal flex flex-col items-start justify-start gap-2 absolute top-9 z-50 py-4 px-6 rounded"
-                    onMouseLeave={() => setSelectedCategory(false)}
+                    onMouseLeave={() => setSelectedCategory(null)}
                   >
                     <Link to="/tv/airing">Airing Today</Link>
                     <Link to="/tv/popular-tv">Popular</Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
                 {selectedCategory === "people" && (
                   <ul
                     className="bg-white w-52 h-fit text-black font-normal flex flex-col items-start justify-start gap-2 absolute top-9 z-50 py-4 px-6 rounded"
-                    onMouseLeave={() => setSelectedCategory(false)}
+                    onMouseLeave={() => setSelectedCategory(null)}
                   >
                     <Link to="/person/popular">Popular People</Link>
                   </ul>
