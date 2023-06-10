@@ -12,7 +12,7 @@ const Hero = () => {
   const randomIndex = Math.floor(Math.random() * movies?.results?.length);
   const randomMovie = movies?.results[randomIndex];
 
-  if(error) return "Something went wrong";
+  if (error) return "Something went wrong";
 
   const searchQueryHandler = (e) => {
     e.preventDefault();
@@ -31,9 +31,9 @@ const Hero = () => {
   const skeleton = () => {
     return (
       <main className="w-full h-[450px] md:h-[500px] bg-[#262728] animate-pulse flex-shrink-0 overflow-hidden">
-         <section className="h-full w-full bg-[#ffffff]">
-        <section className="h-full w-full absolute left-0 animate-slide" />
-      </section>
+        <section className="h-full w-full bg-[#ffffff]">
+          <section className="h-full w-full absolute left-0 animate-slide" />
+        </section>
       </main>
     );
   };
@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <>
       <header className="w-full h-[450px] md:h-[500px] relative">
-        { !isFetching ?(
+        {!isFetching ? (
           randomMovie && (
             <section className="w-full h-full absolute">
               <div className="w-full h-full bg-pink opacity-40 absolute z-10" />
@@ -51,11 +51,10 @@ const Hero = () => {
                 className="w-full h-full  object-cover object-center"
               />
             </section>
-          )) : (
-            <div>
-            {skeleton()}
-          </div>
-          )}
+          )
+        ) : (
+          <div>{skeleton()}</div>
+        )}
         <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
           <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
             <h1 className="text-5xl md:text-7xl font-bold ">Welcome</h1>
