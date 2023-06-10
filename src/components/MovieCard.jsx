@@ -18,7 +18,7 @@ const MovieCard = ({ Trending, isFetching, error }) => {
       {!isFetching ? (
         <main className="w-40 h-fit flex flex-col items-start justify-start gap-5">
           <section className="w-full h-full relative">
-            <img
+            <LazyImg
               src={`https://image.tmdb.org/t/p/original${Trending.poster_path}`}
               alt="Poster"
               className="w-full h-full object-contain object-center rounded"
