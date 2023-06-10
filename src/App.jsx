@@ -13,17 +13,17 @@ const App = () => {
             <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/nowplaying" element={<NowPlaying />} />
-            <Route path="/popular" element={<Popular />} />
-            <Route path="/top-rated" element={<TopRated />} />
-            <Route path="/upcoming" element={<Upcoming />} />
-            <Route path="/airing" element={<AiringToday />} />
-            <Route path="/on-air" element={<OnAir />} />
-            <Route path="/popular" element={<PopularTv />} />
-            <Route path="/top-tv" element={<TopTv />} />
+            <Route path="/movie/nowplaying" element={<NowPlaying />} />
+            <Route path="/movie/popular" element={<Popular />} />
+            <Route path="/movie/top-rated" element={<TopRated />} />
+            <Route path="/movie/upcoming" element={<Upcoming />} />
+            <Route path="/tv/airing" element={<AiringToday />} />
+            <Route path="/tv/on-air" element={<OnAir />} />
+            <Route path="/tv/popular-tv" element={<PopularTv />} />
+            <Route path="/tv/top-tv" element={<TopTv />} />
             <Route path="/mediaDetails/:id" element={<MediaDetails />} />
             <Route path="/search/:query" element={<Search />} />
-            <Route path="/people" element={<People />} />
+            <Route path="/person/popular" element={<People />} />
             <Route path="/peopleDetails/:id" element={<PeopleDetails />} />
           </Routes>
         <Footer />

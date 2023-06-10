@@ -57,7 +57,7 @@ const Hero = () => {
           <div>{skeleton()}</div>
         )}
         <ContentWrapper>
-        <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
+        <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-0 sm:px-10 gap-10 z-40">
           <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
             <h1 className="text-5xl md:text-7xl font-bold ">Welcome</h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
