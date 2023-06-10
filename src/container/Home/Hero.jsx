@@ -55,14 +55,14 @@ const Hero = () => {
         ) : (
           <div>{skeleton()}</div>
         )}
-        <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
+        <main className="h-full max-w-6xl relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
           <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
             <h1 className="text-5xl md:text-7xl font-bold ">Welcome</h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
               Millions of movies, TV shows and people to discover. Explore now.
             </h2>
           </section>
-          <section className="w-[90%] flex items-center relative">
+          <section className="w-full flex items-center relative">
             <input
               type="text"
               placeholder="Search for a movie or tv show...."
