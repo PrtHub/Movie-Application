@@ -10,10 +10,7 @@ const App = () => {
   return (
     <>
       <section className="w-full mx-auto overflow-hidden">
-        <main className="relative w-full">
-          <section className="absolute top-0 z-50">
             <Navbar />
-          </section>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/nowplaying" element={<NowPlaying />} />
@@ -29,7 +26,6 @@ const App = () => {
             <Route path="/people" element={<People />} />
             <Route path="/peopleDetails/:id" element={<PeopleDetails />} />
           </Routes>
-        </main>
         <Footer />
       </section>
     </>
