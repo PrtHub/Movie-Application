@@ -13,6 +13,19 @@ const MovieCard = ({ Trending, isFetching, error }) => {
 
     if(error) return "Something went wrong"
 
+    const skeleton = () => {
+      return (
+        <main className="w-40 h-full bg-[#262728] animate-pulse flex flex-col items-center justify-center">
+        <div className="w-full h-full bg-[#262728]"/>
+        <section className="w-full flex flex-col ">
+         <div className="w-full h-4"/>
+         <div className="w-[80%] h-4"/>
+        </section>
+      </main>
+      );
+    };
+  
+
   return (
     <>
       {!isFetching ? (
@@ -31,7 +44,9 @@ const MovieCard = ({ Trending, isFetching, error }) => {
            </section>
         </main>
       ) : (
-        <>Loading</>
+        <>
+        {skeleton()}
+        </>
       )}
     </>
   );
