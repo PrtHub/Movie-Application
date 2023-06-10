@@ -8,9 +8,35 @@
 }
 
 body {
-  background-color:#d9008d;
+  background-color:black;
   color: white;
   font-family: 'Source Sans 3', sans-serif;
+}
+
+.lower-layer {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    #000000 79.17%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.upper-layer {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    rgba(0, 0, 0, 0) 79.17%
+  );
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .lazy-load-image-background {
@@ -56,6 +82,7 @@ body {
             transform: translateY(0);
   }
 }
+
 
 
 

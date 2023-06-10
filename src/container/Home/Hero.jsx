@@ -42,20 +42,24 @@ const Hero = () => {
   return (
     <>
       <header className="w-full h-[450px] md:h-[500px] relative">
+      
         {!isFetching ? (
           randomMovie && (
             <section className="w-full h-full absolute">
-              <div className="w-full h-full bg-[#a11971] opacity-40 absolute z-10" />
+              <div className="w-full h-full bg-[#0c0c0c] opacity-40 absolute z-10" />
               <LazyImg
                 src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
                 alt="movie-poster"
                 className="w-full h-full  object-cover object-center"
               />
+
             </section>
           )
         ) : (
           <div>{skeleton()}</div>
         )}
+        <div className="upper-layer"></div>
+         <div className="lower-layer"></div>
         <ContentWrapper>
         <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-0 sm:px-10 gap-10 z-40">
           <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
