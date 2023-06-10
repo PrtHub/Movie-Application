@@ -17,7 +17,10 @@ export const tmdbApi = createApi({
     getMovie: builder.query({
       query: () => `/discover/movie`,
     }),
+    getTrendingMovie: builder.query({
+      query: (time) => `/trending/movie/${time}`,
+    }),
   }),
 });
 
-export const { useGetMovieQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery } = tmdbApi;

@@ -64,7 +64,7 @@ const Hero = () => {
               Millions of movies, TV shows and people to discover. Explore now.
             </h2>
           </section>
-          <section className="w-full flex items-center relative">
+          <section className="w-[80%] sm:w-full flex items-center relative">
             <input
               type="text"
               placeholder="Search for a movie or tv show...."
