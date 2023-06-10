@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGetMovieQuery } from "../../redux/TMDB";
 import { useNavigate } from "react-router-dom";
 import { LazyImg } from "../../components";
+import ContentWrapper from "../../Hoc/SectionWrapper";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -55,7 +56,8 @@ const Hero = () => {
         ) : (
           <div>{skeleton()}</div>
         )}
-        <main className="h-full max-w-6xl relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
+        <ContentWrapper>
+        <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-10 gap-10 z-50">
           <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
             <h1 className="text-5xl md:text-7xl font-bold ">Welcome</h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
@@ -71,13 +73,14 @@ const Hero = () => {
               onKeyUp={searchQueryHandler}
             />
             <button
-              className="w-28 sm:w-36 h-12 sm:h-14 bg-pink absolute right-0 rounded-3xl font-medium text-base sm:text-lg "
+              className="w-20 sm:w-36 h-12 sm:h-14 bg-pink absolute -right-5 sm:right-0 rounded-3xl font-medium text-base sm:text-lg "
               onClick={SearchHandle}
             >
               Search
             </button>
           </section>
         </main>
+        </ContentWrapper>
       </header>
     </>
   );

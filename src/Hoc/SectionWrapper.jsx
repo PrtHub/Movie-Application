@@ -1,12 +1,7 @@
-const SectionWrapper = (Component) => {
-    const WrappedComponent = () => (
-      <section className="w-full max-w-7xl mx-auto sm:px-10 px-6">
-        <Component />
-      </section>
-    );
-  
-    return WrappedComponent;
-  };
-  
-  export default SectionWrapper;
+/* eslint-disable react/prop-types */
+const ContentWrapper = ({ children }) => {
+  return <div className="w-full max-w-7xl h-full mx-auto px-10">{children}</div>;
+};
+
+export default ContentWrapper;
   
