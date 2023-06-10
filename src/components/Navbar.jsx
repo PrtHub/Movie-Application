@@ -9,7 +9,15 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   const handleCategory = (category) => {
-    setSelectedCategory(category);
+      setSelectedCategory(category);
+  };
+
+  const handleMobileCategory = (category) => {
+    if (selectedCategory === category) {
+      setSelectedCategory(null);
+    } else {
+      setSelectedCategory(category);
+    }
   };
   return (
     <>
@@ -89,7 +97,7 @@ const Navbar = () => {
                   <ul className="w-64 h-fit absolute bg-pink top-14 -right-10 z-50 py-2 px-4 flex items-start flex-col gap-4 slide-bottom">
                     <li
                       className="w-full h-full"
-                      onClick={() => handleCategory("movies")}       
+                      onClick={() => handleMobileCategory("movies")}       
                     >
                       <span className="font-semibold text-lg cursor-pointer " >Movies</span>
                       {selectedCategory === "movies" && (
@@ -103,7 +111,7 @@ const Navbar = () => {
                     </li>
                     <li
                       className="w-full h-full"
-                      onClick={() => handleCategory("tv")}       
+                      onClick={() => handleMobileCategory("tv")}       
                     >
                       <span className="font-semibold text-lg cursor-pointer">Tv Shows</span>
                       {selectedCategory === "tv" && (
@@ -116,6 +124,7 @@ const Navbar = () => {
                       )}
                     </li>
                     <Link to='/person/popular' className="font-semibold text-lg cursor-pointer" onClick={() => setToggle(false)}>People</Link>
+                    <li className="font-semibold text-lg cursor-pointer">Favorite</li>
                   </ul>
                 </>
               )}
