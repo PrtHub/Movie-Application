@@ -21,7 +21,7 @@ const TrendingPeople = () => {
             <h1 className="text-2xl sm:text-3xl font-semibold">Trending People</h1>
             <TabSwitch onTabChange={handleTabChange}/>
           </section>
-          <main className="flex flex-row gap-10 overflow-x-scroll">
+          <main className="flex flex-row gap-5 overflow-x-scroll">
             {people?.results?.map((person) => (
               <div key={person.id}>
                 <PeopleCard person={person} isFetching={isFetching} error={error}/>

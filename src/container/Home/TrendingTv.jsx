@@ -19,7 +19,7 @@ const TrendingTv = () => {
             <h1 className="text-2xl sm:text-3xl font-semibold">Trending Tv Shows</h1>
             <TabSwitch onTabChange={handleTabChange}/>
           </section>
-          <main className="flex flex-row gap-10 overflow-x-scroll">
+          <main className="flex flex-row gap-5 overflow-x-scroll">
             {TvShows?.results?.map((Media) => (
               <div key={Media.id}>
                 <MovieCard Media={Media} isFetching={isFetching} error={error}/>
