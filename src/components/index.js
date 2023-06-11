@@ -4,6 +4,7 @@ import LazyImg from "./LazyImg";
 import MovieCard from "./MovieCard";
 import TabSwitch from "./TabSwitch";
 import CircleRating from "./CircleRating";
+import PeopleCard from "./PeopleCard";
 
 export {
     Navbar,
@@ -11,5 +12,6 @@ export {
     LazyImg,
     MovieCard,
     TabSwitch,
-    CircleRating
+    CircleRating,
+    PeopleCard
 }
