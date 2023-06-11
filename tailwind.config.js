@@ -10,7 +10,8 @@ export default {
         source: ['Source Sans 3','sans-serif']
       },
       colors: {
-        'pink': "#d9008d"
+        'pink': "#d9008d",
+        'black-100' : '#17181a'
       }
     },
   },
