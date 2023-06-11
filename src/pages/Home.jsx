@@ -1,13 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 // import SectionWrapper from "../Hoc/SectionWrapper";
-import { Hero, Trending } from "../container";
+import { Hero, TrendingMovie, TrendingTv } from "../container";
 
 const Home = () => {
   return (
     <>
       <section>
         <Hero />
-        <Trending />
+        <TrendingMovie />
+        <TrendingTv/>
       </section>
     </>
   );

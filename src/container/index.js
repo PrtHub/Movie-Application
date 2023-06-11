@@ -1,7 +1,9 @@
 import Hero from "./Home/Hero";
-import Trending from "./Home/Trending";
+import TrendingMovie from "./Home/TrendingMovie";
+import TrendingTv from "./Home/TrendingTv";
 
 export {
     Hero,
-    Trending
+    TrendingMovie,
+    TrendingTv
 }
