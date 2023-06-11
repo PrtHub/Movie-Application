@@ -9,7 +9,7 @@ const PeopleCard = ({person, isFetching, error}) => {
 
     const skeleton = () => {
         return (
-          <main className="w-40 h-52 bg-[#262728] animate-pulse flex flex-col items-center justify-center gap-2">
+          <main className="w-40 h-60 bg-[#262728] animate-pulse flex flex-col items-center justify-center gap-2">
           <div className="w-full h-full bg-[#262728]"/>
           <section className="w-full flex flex-col gap-2">
            <div className="w-full h-4"/>
@@ -23,7 +23,7 @@ const PeopleCard = ({person, isFetching, error}) => {
     <>
      {!isFetching ? (
         <main className="w-40 h-fit flex flex-col items-start justify-start gap-5">
-          <section className="w-full h-full relative cursor-pointer" onClick={handleClick}>
+          <section className="w-full h-60 relative cursor-pointer" onClick={handleClick}>
             <LazyImg
               src={`https://image.tmdb.org/t/p/original${person.profile_path}`}
               alt="Poster"
@@ -37,9 +37,15 @@ const PeopleCard = ({person, isFetching, error}) => {
            </section>
         </main>
       ) : (
-        <>
+        <div className="flex overflow-y-hidden px-5 gap-5">
         {skeleton()}
-        </>
+        {skeleton()}
+        {skeleton()}
+        {skeleton()}
+        {skeleton()}
+        {skeleton()}
+        {skeleton()}
+        </div>
       )}
     </>
   )
