@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CircleRating from "./CircleRating";
 import LazyImg from "./LazyImg";
 
 const MovieCard = ({ Media, isFetching, error }) => {
-  const { id } = useParams()
+
   const navigate = useNavigate();
     const formatDate = (dateStr) => {
         const options = { month: 'short', day: '2-digit', year: 'numeric'}

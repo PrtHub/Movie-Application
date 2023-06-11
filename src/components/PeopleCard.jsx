@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom"
 import LazyImg from "./LazyImg"
 
 
 const PeopleCard = ({person, isFetching, error}) => {
-
-    const handleClick  = () => {
-
+     const navigate = useNavigate();
+    const handleClick  = (e) => {
+      e.preventDefault();
+      navigate(`/peopleDetails/${person.id}`)
     }
+
+    if(error) return "Something went wrong"
 
     const skeleton = () => {
         return (
