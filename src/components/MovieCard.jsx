@@ -3,6 +3,7 @@
 import { useNavigate } from "react-router-dom";
 import CircleRating from "./CircleRating";
 import LazyImg from "./LazyImg";
+import poster from '../assets/poster.jpg'
 
 const MovieCard = ({ Media, isFetching, error }) => {
 
@@ -38,7 +39,7 @@ const MovieCard = ({ Media, isFetching, error }) => {
         <main className="w-40 h-full flex flex-col items-start justify-start gap-5">
           <section className="w-full h-60 relative cursor-pointer" onClick={handleClick}>
             <LazyImg
-              src={`https://image.tmdb.org/t/p/original${Media.poster_path}`}
+              src={`https://image.tmdb.org/t/p/original${Media.poster_path}` || poster}
               alt="Poster"
               className="w-full h-full object-contain object-center rounded"
             />

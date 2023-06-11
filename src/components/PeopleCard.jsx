@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom"
 import LazyImg from "./LazyImg"
+import cast from '../assets/cast.jpg'
 
 
 const PeopleCard = ({person, isFetching, error}) => {
@@ -30,7 +31,7 @@ const PeopleCard = ({person, isFetching, error}) => {
         <main className="w-40 h-fit flex flex-col items-start justify-start gap-5">
           <section className="w-full h-60 relative cursor-pointer" onClick={handleClick}>
             <LazyImg
-              src={`https://image.tmdb.org/t/p/original${person.profile_path}`}
+              src={`https://image.tmdb.org/t/p/original${person.profile_path}` || cast}
               alt="Poster"
               className="w-full h-full object-contain object-center rounded"
             />
