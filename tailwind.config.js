@@ -11,7 +11,8 @@ export default {
       },
       colors: {
         'pink': "#d9008d",
-        'black-100' : '#17181a'
+        'black-100' : '#17181a',
+        'skeleton': '#262728'
       }
     },
   },
