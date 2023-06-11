@@ -42,10 +42,10 @@ const Hero = () => {
   return (
     <>
       <header className="w-full h-[450px] md:h-[500px] relative">
-      
         {!isFetching ? (
-          randomMovie && (
-            <section className="w-full h-full absolute">
+          <>
+         {randomMovie && (
+           <section className="w-full h-full absolute">
               <div className="w-full h-full bg-[#0c0c0c] opacity-40 absolute z-10" />
               <LazyImg
                 src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
@@ -54,10 +54,7 @@ const Hero = () => {
               />
 
             </section>
-          )
-        ) : (
-          <div>{skeleton()}</div>
-        )}
+          )}
         <div className="upper-layer"></div>
          <div className="lower-layer"></div>
         <ContentWrapper>
@@ -85,6 +82,10 @@ const Hero = () => {
           </section>
         </main>
         </ContentWrapper>
+        </>
+        ) : (
+          <div>{skeleton()}</div>
+        )}
       </header>
     </>
   );
