@@ -26,10 +26,13 @@ export const tmdbApi = createApi({
     getTrendingPeople: builder.query({
       query: (time) => `/trending/person/${time}`,
     }),
+    getSearchMulti: builder.query({
+      query: (query) => `search/multi?query=${query}&page=2`,
+    }),
     // getTrailers: builder.query({
     //   query: (mediaType) => `/${mediaType}/upcoming`,
     // }),
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery } = tmdbApi;
