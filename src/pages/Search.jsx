@@ -9,8 +9,9 @@ import { useState } from "react";
 const Search = () => {
   const { query } = useParams();
   const [pageNum, setPageNum] = useState(1);
-  const { data: Results, isFetching, error, fetchNextPage } = useGetSearchMultiQuery(query);
+  const { data: Results, isFetching, error, fetchNextPage } = useGetSearchMultiQuery(query, 1);
   console.log(Results)
+
 
   if(isFetching) return "Loading....."
   if(error) return "Something went wrong"

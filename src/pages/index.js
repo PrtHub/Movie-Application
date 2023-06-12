@@ -1,13 +1,15 @@
 import Home from "./Home";
-import MediaDetails from "./MediaDetails";
+import MovieDetails from "./MovieDetails";
+import TvDetails from "./TvDetails";
 import People from "./People";
 import PeopleDetails from "./PeopleDetails";
 import Search from "./Search";
 
 export {
     Home,
-    MediaDetails,
+    MovieDetails,
     Search,
     People,
-    PeopleDetails
+    PeopleDetails,
+    TvDetails
 }

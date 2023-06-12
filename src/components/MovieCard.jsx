@@ -16,7 +16,7 @@ const MovieCard = ({ Media, isFetching, error }) => {
 
     const handleClick = (e) => {
       e.preventDefault();
-      navigate(`/mediaDetails/${Media.id}`)
+      navigate(`/${Media.media_type}/${Media.id}`)
     }
 
     if(error) return "Something went wrong"
