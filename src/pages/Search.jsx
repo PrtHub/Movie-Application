@@ -1,45 +1,44 @@
 import { useParams } from "react-router-dom";
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { useGetSearchMultiQuery } from "../redux/TMDB";
+import { SearchCard } from "../components";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useState } from "react";
 
 
 const Search = () => {
   const { query } = useParams();
-  const { data: Results, isFetching, error } = useGetSearchMultiQuery(query);
+  const [pageNum, setPageNum] = useState(1);
+  const { data: Results, isFetching, error, fetchNextPage } = useGetSearchMultiQuery(query);
   console.log(Results)
 
-  let movieCount = 0;
-  let tvShowCount = 0;
-  let personCount = 0;
+  if(isFetching) return "Loading....."
+  if(error) return "Something went wrong"
 
-  if (Results && Results?.results) {
-    Results?.results.forEach((result) => {
-      if (result.media_type === "movie") {
-        movieCount++;
-      } else if (result.media_type === "tv") {
-        tvShowCount++;
-      } else if (result.media_type === "person") {
-        personCount++;
-      }
-    });
-  }
+  const fetchNextPageData = () => {
+    fetchNextPage({ query: query, pageNum: pageNum + 1 });
+    setPageNum(pageNum + 1);
+  };
 
+  
   return (
     <>
+    <div className="w-full h-full px-10 py-20">
       <ContentWrapper>
-        <div className="w-full h-full flex items-start justify-between gap-20 px-10 py-20">
-          <section className="w-72 h-64 flex flex-col items-start">
-            <h1 className="w-full py-5 bg-pink flex items-center px-10 font-semibold text-lg">Search Results</h1>
-            {Results?.results && (
-              <section className="w-full h-40 bg-black-100 flex items-start justify-start flex-col gap-5 pt-5 px-10">
-                <p className="w-full flex justify-between items-center">Movies <span>{movieCount}</span></p>
-                <p className="w-full flex justify-between items-center">TV Shows <span>{tvShowCount}</span></p>
-                <p className="w-full flex justify-between items-center">People <span>{personCount}</span></p>
-              </section>
-            )}
+        <InfiniteScroll
+         className="w-full h-full flex flex-wrap items-start justify-start gap-5"
+         dataLength={Results?.pages?.[pageNum]?.results?.length || 0}
+         next={fetchNextPageData}
+         hasMore={!!Results?.pages?.[pageNum + 1]}
+         >
+        {Results?.pages?.[pageNum]?.results?.map((result) => (
+          <section key={result.id}>
+            <SearchCard />
           </section>
-        </div>
+        ))}
+        </InfiniteScroll>
       </ContentWrapper>
+    </div>
     </>
   );
 };

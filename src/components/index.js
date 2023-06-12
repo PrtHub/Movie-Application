@@ -5,6 +5,7 @@ import MovieCard from "./MovieCard";
 import TabSwitch from "./TabSwitch";
 import CircleRating from "./CircleRating";
 import PeopleCard from "./PeopleCard";
+import SearchCard from "./SearchCard";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     MovieCard,
     TabSwitch,
     CircleRating,
-    PeopleCard
+    PeopleCard,
+    SearchCard
 }
