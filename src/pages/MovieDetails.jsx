@@ -1,12 +1,13 @@
 import { DetailsHeader, LazyImg } from "../components";
-import { useGetMovieDetailsQuery } from "../redux/TMDB";
+import { useGetMovieCraditsQuery, useGetMovieDetailsQuery, useGetWatchMovieQuery } from "../redux/TMDB";
 import { useParams } from "react-router-dom";
 
 
 const MovieDetails = () => {
   const {movie_id } = useParams();
   const { data: details, isFetching, error } = useGetMovieDetailsQuery(movie_id)
-  console.log(details?.poster_path)
+  const { data: platforms} = useGetWatchMovieQuery(movie_id)
+  const { data: credits} = useGetMovieCraditsQuery(movie_id)
 
   const backdrop_path = details?.backdrop_path
   
@@ -23,7 +24,7 @@ const MovieDetails = () => {
        className="w-full h-full object-cover object-center "/>
         </div>
        <div className="lower-layer -mb-2"></div>
-       <DetailsHeader details={details}/>
+       <DetailsHeader details={details} platforms={platforms?.results?.IN} crew={credits?.crew}/>
       </section>
      </div> 
     )}   

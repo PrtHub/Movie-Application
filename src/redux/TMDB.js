@@ -32,10 +32,20 @@ export const tmdbApi = createApi({
     getMovieDetails: builder.query({
       query: (movie_id) => `/movie/${movie_id}`
     }),
+    getWatchMovie: builder.query({
+      query: (movie_id) => `movie/${movie_id}/watch/providers`
+    }),
+    getMovieCradits: builder.query({
+      query: (movie_id) => `movie/${movie_id}/credits`
+    }),
     getTvDetails: builder.query({
       query: (tv_id) => `/tv/${tv_id}`
-    })
+    }),
+    getWatchTv: builder.query({
+      query: (movie_id) => `tv/${movie_id}/watch/providers`
+    }),
+   
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery } = tmdbApi;
