@@ -29,10 +29,13 @@ export const tmdbApi = createApi({
     getSearchMulti: builder.query({
       query: (query, pageNum) => `/search/multi?query=${query}&page=${pageNum}`,
     }),
-    getMediaDetails: builder.query({
+    getMovieDetails: builder.query({
       query: (movie_id) => `/movie/${movie_id}`
+    }),
+    getTvDetails: builder.query({
+      query: (tv_id) => `/tv/${tv_id}`
     })
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMediaDetailsQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery } = tmdbApi;

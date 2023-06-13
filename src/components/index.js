@@ -6,6 +6,7 @@ import TabSwitch from "./TabSwitch";
 import CircleRating from "./CircleRating";
 import PeopleCard from "./PeopleCard";
 import SearchCard from "./SearchCard";
+import DetailsHeader from "./DetailsHeader";
 
 export {
     Navbar,
@@ -15,5 +16,6 @@ export {
     TabSwitch,
     CircleRating,
     PeopleCard,
-    SearchCard
+    SearchCard,
+    DetailsHeader
 }
