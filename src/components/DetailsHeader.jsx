@@ -53,12 +53,16 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
   const writerName = [...new Set(writer?.map((w) => w.name))];
   const uniqueWritersNames = [...new Set(writerName)];
 
+  const creator = crew?.filter((work) => work.job === "Creator");
+  const creatorName = creator?.map((c) => c.name);
+  const crertors = creatorName ? creatorName : null
+
   if (loading) return "loading";
 
   return (
     <>
       <section className="w-full h-[1200px] lg:h-[600px] relative">
-        <div className="w-full h-full bg-[#00008080] bg-opacity-80 absolute z-0" />
+        <div className="w-full h-full bg-[#1b1b24dc]  absolute z-0" />
         <div className="w-full h-full">
           <img
             src={`https://image.tmdb.org/t/p/original${details?.backdrop_path}`}
@@ -100,7 +104,10 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                     {details?.runtime ? (
                       <>{formatTime(details?.runtime)}</>
                     ) : (
-                      <>{details.number_of_seasons} Seasons ({details?.number_of_episodes} Episodes)</>
+                      <>
+                        {details.number_of_seasons} Seasons (
+                        {details?.number_of_episodes} Episodes)
+                      </>
                     )}
                   </li>
                 </ul>
@@ -188,6 +195,17 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                     Story & Screen play:{" "}
                     <span className="text-base font-normal ml-1">
                       {uniqueWritersNames.splice(0, 3).join(", ")}
+                    </span>
+                  </p>
+                  <hr />
+                </section>
+              )}
+              {crertors && (
+                <section className="w-full">
+                  <p className="text-xl font-medium">
+                    Creator:{" "}
+                    <span className="text-base font-normal ml-1">
+                      {crertors}
                     </span>
                   </p>
                   <hr />
