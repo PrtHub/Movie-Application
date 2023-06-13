@@ -34,8 +34,8 @@ const DetailsHeader = ({ details }) => {
           </section>
           <section className="w-full h-full flex flex-col items-start justify-start">
             <div className="flex flex-col">
-              <h1 className="text-4xl font-semibold capitalize">
-                {details?.title}({formatYear(details?.release_date)})
+              <h1 className="text-4xl font-bold capitalize">
+                {details?.title} <span className="font-medium">({formatYear(details?.release_date)})</span>
               </h1>
               <ul className="flex items-center gap-2">
                 <li className="font-medium text-base">
