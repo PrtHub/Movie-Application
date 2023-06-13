@@ -53,7 +53,6 @@ const DetailsHeader = ({ details, platforms, crew }) => {
   const writerName = [...new Set(writer?.map((w) => w.name))];
   const uniqueWritersNames = [...new Set(writerName)];
 
-  
   return (
     <>
       <ContentWrapper>
@@ -107,8 +106,8 @@ const DetailsHeader = ({ details, platforms, crew }) => {
               </section>
 
               <span className="flex items-center gap-1 font-medium text-lg">
-              <MdFavorite className="bg-[#081c22] text-4xl p-2 rounded-full cursor-pointer "/>
-              Favorite
+                <MdFavorite className="bg-[#081c22] text-4xl p-2 rounded-full cursor-pointer " />
+                Favorite
               </span>
               <span className="flex items-center gap-1 font-semibold text-lg cursor-pointer">
                 <BsPlayCircle className="text-4xl" />
@@ -136,18 +135,18 @@ const DetailsHeader = ({ details, platforms, crew }) => {
                 </span>
               </p>
             </section>
-            {flatrate ||
-              (buy && (
-                <section className="w-full">
-                  <p className="text-xl font-medium">
-                    Watch on:{" "}
-                    <span className="text-base font-normal ml-1">
-                      {flatrate}, {buy ? buy.join(", ") : ""}
-                    </span>
-                  </p>
-                  <hr />
-                </section>
-              ))}
+            {flatrate || buy ? (
+              <section className="w-full">
+                <p className="text-xl font-medium">
+                  Watch on:{" "}
+                  <span className="text-base font-normal ml-1">
+                    {flatrate && `${flatrate}, `}
+                    {buy && buy.join(", ")}
+                  </span>
+                </p>
+                <hr />
+              </section>
+            ) : null}
             {uniqueDirectorNames.length > 0 && (
               <section className="w-full">
                 <p className="text-xl font-medium">

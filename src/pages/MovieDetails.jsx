@@ -17,11 +17,11 @@ const MovieDetails = () => {
     {details && (
      <div className="w-full h-full mt-10 mb-20">
       <section className="w-full h-[600px] relative">
-      <div className="w-full h-full bg-black bg-opacity-70 absolute z-0" />
+      <div className="w-full h-full bg-[#00008080] bg-opacity-80 absolute z-0" />
         <div className="w-full h-full">
        <img src={`https://image.tmdb.org/t/p/original${backdrop_path}`} 
        alt="backdrop_img" 
-       className="w-full h-full object-cover object-center "/>
+       className="w-full h-full object-cover object-center  "/>
         </div>
        <div className="lower-layer -mb-2"></div>
        <DetailsHeader details={details} platforms={platforms?.results?.IN} crew={credits?.crew}/>
