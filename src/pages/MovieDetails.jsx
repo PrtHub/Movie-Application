@@ -1,5 +1,5 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
-import { DetailsHeader } from "../components";
+import { DetailsHeader, Error } from "../components";
 import {
   useGetMovieCraditsQuery,
   useGetMovieDetailsQuery,
@@ -12,7 +12,7 @@ const MovieDetails = () => {
   const {
     data: details,
     isFetching,
-    error,
+    error
   } = useGetMovieDetailsQuery(movie_id);
   const { data: platforms } = useGetWatchMovieQuery(movie_id);
   const { data: credits } = useGetMovieCraditsQuery(movie_id);
@@ -46,6 +46,8 @@ const MovieDetails = () => {
       </ContentWrapper>
     );
   };
+
+  if(error) return <Error/>
 
   return (
     <>
