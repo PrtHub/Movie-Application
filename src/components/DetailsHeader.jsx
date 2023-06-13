@@ -30,8 +30,8 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
   const genres = details?.genres?.map((genre) => genre.name);
 
   //money in million
-  const budgetInMillion = (details.budget / 1000000).toFixed(2);
-  const revenueInMillion = (details.revenue / 1000000).toFixed(2);
+  // const budgetInMillion = (details.budget / 1000000).toFixed(2);
+  // const revenueInMillion = (details.revenue / 1000000).toFixed(2);
 
   //watch providers
   const flatrate = platforms?.flatrate?.map(
@@ -78,20 +78,30 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
             <section className="w-full h-full flex flex-col items-start justify-start gap-5 mr-5 lg:mr-0">
               <section className="flex flex-col">
                 <h1 className="text-4xl font-bold capitalize">
-                  {details?.title}{" "}
+                  {details?.title || details?.name}{" "}
                   <span className="font-medium">
-                    ({formatYear(details?.release_date)})
+                    (
+                    {formatYear(
+                      details?.release_date || details?.first_air_date
+                    )}
+                    )
                   </span>
                 </h1>
                 <ul className="flex items-center gap-2">
                   <li className="font-medium text-base">
-                    {formatDate(details?.release_date)}
+                    {formatDate(
+                      details?.release_date || details?.first_air_date
+                    )}
                   </li>
                   <li className="font-medium text-base list-disc ml-4">
                     {genres.join(", ")}
                   </li>
                   <li className="font-medium text-base list-disc ml-4">
-                    {formatTime(details?.runtime)} ({details.original_language})
+                    {details?.runtime ? (
+                      <>{formatTime(details?.runtime)}</>
+                    ) : (
+                      <>{details.number_of_seasons} Seasons ({details?.number_of_episodes} Episodes)</>
+                    )}
                   </li>
                 </ul>
               </section>
@@ -135,7 +145,7 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                   <p className="text-base font-medium">{details.overview}</p>
                 </div>
               </article>
-              <section className="flex items-center  gap-5">
+              {/* <section className="flex items-center  gap-5">
                 <p className="text-xl font-medium">
                   Budget:{" "}
                   <span className="text-base ml-1">
@@ -148,7 +158,7 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                     {revenueInMillion} million USD
                   </span>
                 </p>
-              </section>
+              </section> */}
               {flatrate || buy ? (
                 <section className="w-full">
                   <p className="text-xl font-medium">
