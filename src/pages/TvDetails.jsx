@@ -1,27 +1,24 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { Cast, DetailsHeader } from "../container";
+import { Cast, DetailsHeader, VideoClips } from "../container";
 import {
   useGetTvCraditsQuery,
-  useGetTvDetailsQuery, useGetTvVideoQuery, useGetWatchTvQuery,
+  useGetTvDetailsQuery,
+  useGetTvVideoQuery,
+  useGetWatchTvQuery,
 } from "../redux/TMDB";
 import { useParams } from "react-router-dom";
 
 const TvDetails = () => {
   const { tv_id } = useParams();
-  const {
-    data: details,
-    isFetching,
-    error
-  } = useGetTvDetailsQuery(tv_id);
+  const { data: details, isFetching, error } = useGetTvDetailsQuery(tv_id);
   const { data: platforms } = useGetWatchTvQuery(tv_id);
   const { data: credits } = useGetTvCraditsQuery(tv_id);
-  const {data: videos} = useGetTvVideoQuery(tv_id)
+  const { data: videos } = useGetTvVideoQuery(tv_id);
 
-  console.log(videos)
+  console.log(videos);
 
-  console.log(credits)
-
+  console.log(credits);
 
   const skeleton = () => {
     return (
@@ -53,7 +50,7 @@ const TvDetails = () => {
     );
   };
 
-  if(error) return <Error/>
+  if (error) return <Error />;
 
   return (
     <>
@@ -67,8 +64,11 @@ const TvDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-               <section className="py-10 px-10 flex flex-row gap-5 overflow-x-scroll">
-              <Cast casts={credits?.cast} loading={isFetching}/>
+              <section className="py-10 px-10 flex flex-row gap-5 overflow-x-scroll">
+                <Cast casts={credits?.cast} loading={isFetching} />
+              </section>
+              <section className="py-10 px-10 flex flex-row gap-5 overflow-x-scroll">
+                <VideoClips videos={videos} loading={isFetching} />
               </section>
             </div>
           )}

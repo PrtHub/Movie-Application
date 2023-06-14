@@ -5,6 +5,7 @@ import TrendingPeople from "./Home/TrendingPeople";
 
 import DetailsHeader from "./Details/DetailsHeader";
 import Cast from "./Details/cast";
+import VideoClips from "./Details/VideoClips";
 
 
 export {
@@ -14,5 +15,6 @@ export {
     TrendingPeople,
 
     DetailsHeader,
-    Cast
+    Cast,
+    VideoClips
 }
