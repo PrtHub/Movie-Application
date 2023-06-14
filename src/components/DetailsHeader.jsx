@@ -12,11 +12,6 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
   // date
-  const formatDate = (dateStr) => {
-    const options = { month: "short", day: "2-digit", year: "numeric" };
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", options);
-  };
   const formatYear = (yearStr) => {
     const date = new Date(yearStr);
     const year = date.getFullYear();
@@ -32,10 +27,6 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
 
   // genres
   const genres = details?.genres?.map((genre) => genre.name);
-
-  //money in million
-  // const budgetInMillion = (details.budget / 1000000).toFixed(2);
-  // const revenueInMillion = (details.revenue / 1000000).toFixed(2);
 
   //watch providers
   const flatrate = platforms?.flatrate?.map(
@@ -165,21 +156,6 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                   <p className="text-base font-medium">{details.overview}</p>
                 </div>
               </article>
-              {/* <section className="flex items-center  gap-5">
-                <p className="text-xl font-medium">
-                  Budget:{" "}
-                  <span className="text-base ml-1">
-                    {budgetInMillion} million USD
-                  </span>
-                </p>
-                <p className="text-xl font-medium">
-                  Revenue:{" "}
-                  <span className="text-base ml-1">
-                    {revenueInMillion} million USD
-                  </span>
-                </p>
-              </section> */}
-
               <section className="w-full">
                 <p className="text-xl font-medium">
                   Status:{" "}
