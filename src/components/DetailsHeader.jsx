@@ -61,8 +61,9 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const creatorName = creator?.map((c) => c.name);
 
   if (loading) return "loading";
-
-  console.log(video)
+  const language = details?.spoken_languages
+    ?.map((s) => s.english_name)
+    .splice(0, 2);
 
   return (
     <>
@@ -97,10 +98,11 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                   </span>
                 </h1>
                 <ul className="flex items-center gap-2">
-                  <li className="font-medium text-base">
-                    {formatDate(
-                      details?.release_date || details?.first_air_date
-                    )}
+                  <li className="font-medium text-base ">
+                    {details?.release_date || details?.first_air_date}
+                  </li>
+                  <li className="font-medium text-base list-disc ml-4">
+                    {language.join(", ")}
                   </li>
                   <li className="font-medium text-base list-disc ml-4">
                     {genres.join(", ")}
@@ -177,12 +179,24 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                   </span>
                 </p>
               </section> */}
+
+              <section className="w-full">
+                <p className="text-xl font-medium">
+                  Status:{" "}
+                  <span className="text-base font-normal ml-1">
+                    {details.status}
+                  </span>
+                </p>
+                <hr />
+              </section>
+
               {flatrate || buy ? (
                 <section className="w-full">
                   <p className="text-xl font-medium">
                     Watch on:{" "}
                     <span className="text-base font-normal ml-1">
-                      {flatrate && `${flatrate}, `}
+                      {flatrate &&
+                        `${flatrate}${buy && buy.length > 0 ? ", " : " "} `}
                       {buy && buy.join(", ")}
                     </span>
                   </p>
@@ -223,14 +237,14 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                 </section>
               )}
             </section>
-        {show && (
-          <VideoPopUp
-            show={show}
-            setShow={setShow}
-            videoId={videoId}
-            setVideoId={setVideoId}
-          />
-        )}
+            {show && (
+              <VideoPopUp
+                show={show}
+                setShow={setShow}
+                videoId={videoId}
+                setVideoId={setVideoId}
+              />
+            )}
           </main>
         </ContentWrapper>
       </section>
