@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/tv/:tv_id" element={<TvDetails />} />
             <Route path="/search/:query" element={<Search />} />
             <Route path="/person/popular" element={<People />} />
-            <Route path="/:people/:id" element={<PeopleDetails />} />
+            <Route path="/person/:person_id" element={<PeopleDetails />} />
           </Routes>
         <Footer />
       </section>

@@ -8,7 +8,7 @@ const PeopleCard = ({person, isFetching, error}) => {
      const navigate = useNavigate();
     const handleClick  = (e) => {
       e.preventDefault();
-      navigate(`/peopleDetails/${person.id}`)
+      navigate(`/person/${person.id}`)
     }
 
     if(error) return "Something went wrong"
