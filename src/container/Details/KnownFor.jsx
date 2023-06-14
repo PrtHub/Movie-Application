@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { LazyImg } from "../../components";
 import poster from "../../assets/poster.jpg";
