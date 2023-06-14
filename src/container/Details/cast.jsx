@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import avatar from "../../assets/cast.jpg";
 import { LazyImg } from "../../components";
 
 const Cast = ({ casts, loading }) => {
+  const navigate = useNavigate();
   console.log(casts);
 
   const skeleton = () => {
@@ -36,7 +38,14 @@ const Cast = ({ casts, loading }) => {
                     key={cast.id}
                     className="w-full h-full flex flex-col items-center justify-center gap-2"
                   >
-                    <section className="w-32 h-32 rounded-full overflow-hidden">
+                    <section
+                      className="w-32 h-32 rounded-full overflow-hidden"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.scrollTo(0, 0);
+                        navigate(`/person/${cast.id}`);
+                      }}
+                    >
                       <LazyImg
                         src={`https://image.tmdb.org/t/p/original${imgUrl}`}
                         className="w-full h-full rounded-full object-cover object-center"
