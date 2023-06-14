@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import ContentWrapper from "../Hoc/SectionWrapper";
-import LazyImg from "./LazyImg";
+import ContentWrapper from "../../Hoc/SectionWrapper";
+import LazyImg from "../../components/LazyImg";
 import { BsPlayCircle } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
 import { useState } from "react";
-import VideoPopUp from "./VideoPopUp";
+import VideoPopUp from "../../components/VideoPopUp";
 
 const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const [show, setShow] = useState(false);

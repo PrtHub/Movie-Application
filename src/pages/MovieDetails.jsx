@@ -1,5 +1,6 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
-import { DetailsHeader, Error } from "../components";
+import { Error } from "../components";
+import { DetailsHeader } from "../container";
 import {
   useGetMovieCraditsQuery,
   useGetMovieDetailsQuery,

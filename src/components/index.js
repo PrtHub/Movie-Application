@@ -6,7 +6,6 @@ import TabSwitch from "./TabSwitch";
 import CircleRating from "./CircleRating";
 import PeopleCard from "./PeopleCard";
 import SearchCard from "./SearchCard";
-import DetailsHeader from "./DetailsHeader";
 import Error from "./Error";
 
 export {
@@ -18,6 +17,5 @@ export {
     CircleRating,
     PeopleCard,
     SearchCard,
-    DetailsHeader,
     Error
 }
