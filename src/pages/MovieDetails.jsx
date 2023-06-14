@@ -31,7 +31,7 @@ const MovieDetails = () => {
     return (
       <ContentWrapper>
         <section className="w-full h-[600px] relative">
-          <section className="w-full h-full flex justify-center items-start gap-10 p-10 absolute top-0 right-0 left-0 z-50 opacity-100 animate-pulse">
+          <section className="w-full h-full flex flex-col lg:flex-row justify-center items-start gap-10 p-10 absolute top-0 right-0 left-0 z-50 opacity-100 animate-pulse">
             <section className="w-[400px] h-[480px] bg-skeleton animate-pulse">
               <div className="w-full h-full object-cover object-center rounded " />
             </section>
@@ -77,9 +77,9 @@ const MovieDetails = () => {
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={isFetching} />
               </section>
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+              {reviews && reviews.results.length > 0 && <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <Reviews reviews={reviews} loading={isFetching} />
-              </section>
+              </section>}
               <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
                 <Similar similars={similars} loading={isFetching} />
               </section>

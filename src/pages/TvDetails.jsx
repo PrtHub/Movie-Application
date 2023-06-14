@@ -70,15 +70,15 @@ const TvDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-              <section className=" flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <Cast casts={credits?.cast} loading={isFetching} />
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={isFetching} />
               </section>
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+              {reviews && reviews.results.length > 0 && <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <Reviews reviews={reviews} loading={isFetching} />
-              </section>
+              </section>}
               <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
                 <Similar similars={similars} loading={isFetching} />
               </section>
