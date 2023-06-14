@@ -5,8 +5,12 @@ import ContentWrapper from "../Hoc/SectionWrapper";
 import LazyImg from "./LazyImg";
 import { BsPlayCircle } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
+import { useState } from "react";
+import VideoPopUp from "./VideoPopUp";
 
-const DetailsHeader = ({ details, platforms, crew, loading }) => {
+const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
+  const [show, setShow] = useState(false);
+  const [videoId, setVideoId] = useState(null);
   // date
   const formatDate = (dateStr) => {
     const options = { month: "short", day: "2-digit", year: "numeric" };
@@ -57,6 +61,8 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
   const creatorName = creator?.map((c) => c.name);
 
   if (loading) return "loading";
+
+  console.log(video)
 
   return (
     <>
@@ -137,7 +143,13 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                   <MdFavorite className="bg-[#081c22] text-4xl p-2 rounded-full cursor-pointer " />
                   Favorite
                 </span>
-                <span className="flex items-center gap-1 font-semibold text-lg cursor-pointer">
+                <span
+                  className="flex items-center gap-1 font-semibold text-lg cursor-pointer"
+                  onClick={() => {
+                    setShow(true);
+                    setVideoId(video.key);
+                  }}
+                >
                   <BsPlayCircle className="text-4xl" />
                   Play Trailer
                 </span>
@@ -211,6 +223,14 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                 </section>
               )}
             </section>
+        {show && (
+          <VideoPopUp
+            show={show}
+            setShow={setShow}
+            videoId={videoId}
+            setVideoId={setVideoId}
+          />
+        )}
           </main>
         </ContentWrapper>
       </section>

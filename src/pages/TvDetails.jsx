@@ -2,7 +2,7 @@ import ContentWrapper from "../Hoc/SectionWrapper";
 import { DetailsHeader, Error } from "../components";
 import {
   useGetTvCraditsQuery,
-  useGetTvDetailsQuery, useGetWatchTvQuery,
+  useGetTvDetailsQuery, useGetTvVideoQuery, useGetWatchTvQuery,
 } from "../redux/TMDB";
 import { useParams } from "react-router-dom";
 
@@ -15,6 +15,9 @@ const TvDetails = () => {
   } = useGetTvDetailsQuery(tv_id);
   const { data: platforms } = useGetWatchTvQuery(tv_id);
   const { data: credits } = useGetTvCraditsQuery(tv_id);
+  const {data: videos} = useGetTvVideoQuery(tv_id)
+
+  console.log(videos)
 
   console.log(credits)
 
@@ -61,6 +64,7 @@ const TvDetails = () => {
                 details={details}
                 platforms={platforms?.results?.IN}
                 crew={credits?.crew}
+                video={videos?.results?.[0]}
               />
             </div>
           )}
