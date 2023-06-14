@@ -1,10 +1,13 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { Cast, DetailsHeader, Reviews, VideoClips } from "../container";
+import { Cast, DetailsHeader, Recommend, Reviews, Similar, VideoClips } from "../container";
+
 import {
   useGetMovieCraditsQuery,
   useGetMovieDetailsQuery,
+  useGetMovieRecommendQuery,
   useGetMovieReviewsQuery,
+  useGetMovieSimilarQuery,
   useGetMovieVideoQuery,
   useGetWatchMovieQuery,
 } from "../redux/TMDB";
@@ -17,10 +20,12 @@ const MovieDetails = () => {
     isFetching,
     error
   } = useGetMovieDetailsQuery(movie_id);
-  const { data: platforms } = useGetWatchMovieQuery(movie_id);
-  const { data: credits } = useGetMovieCraditsQuery(movie_id);
+  const { data: platforms } = useGetWatchMovieQuery(movie_id)
+  const { data: credits } = useGetMovieCraditsQuery(movie_id)
   const {data: videos} = useGetMovieVideoQuery(movie_id)
   const {data: reviews} = useGetMovieReviewsQuery(movie_id)
+  const {data: similars} = useGetMovieSimilarQuery(movie_id)
+  const {data: recommends} = useGetMovieRecommendQuery(movie_id)
 
   const skeleton = () => {
     return (
@@ -66,14 +71,20 @@ const MovieDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-              <section className="flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
               <Cast casts={credits?.cast} loading={isFetching}/>
               </section>
-              <section className="flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={isFetching} />
               </section>
-              <section className="flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <Reviews reviews={reviews} loading={isFetching} />
+              </section>
+              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                <Similar similars={similars} loading={isFetching} />
+              </section>
+              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                <Recommend recommends={recommends} loading={isFetching} />
               </section>
             </div>
           )}

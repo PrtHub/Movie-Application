@@ -44,6 +44,12 @@ export const tmdbApi = createApi({
     getMovieReviews: builder.query({
       query: (movie_id) => `movie/${movie_id}/reviews`
     }), 
+    getMovieSimilar: builder.query({
+      query: (movie_id) => `movie/${movie_id}/similar`
+    }), 
+    getMovieRecommend: builder.query({
+      query: (movie_id) => `movie/${movie_id}/recommendations`
+    }), 
     getWatchTv: builder.query({
       query: (tv_id) => `tv/${tv_id}/watch/providers`
     }),
@@ -59,8 +65,13 @@ export const tmdbApi = createApi({
     getTvReviews: builder.query({
       query: (tv_id) => `tv/${tv_id}/reviews`
     }), 
-   
+    getTvSimilar: builder.query({
+      query: (tv_id) => `tv/${tv_id}/similar`
+    }), 
+    getTvRecommend: builder.query({
+      query: (tv_id) => `tv/${tv_id}/recommendations`
+    }), 
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery, useGetTvSimilarQuery, useGetMovieRecommendQuery, useGetMovieSimilarQuery, useGetTvRecommendQuery } = tmdbApi;

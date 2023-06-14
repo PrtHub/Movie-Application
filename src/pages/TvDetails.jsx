@@ -1,10 +1,12 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { Cast, DetailsHeader, Reviews, VideoClips } from "../container";
+import { Cast, DetailsHeader, Recommend, Reviews, Similar, VideoClips } from "../container";
 import {
   useGetTvCraditsQuery,
   useGetTvDetailsQuery,
+  useGetTvRecommendQuery,
   useGetTvReviewsQuery,
+  useGetTvSimilarQuery,
   useGetTvVideoQuery,
   useGetWatchTvQuery,
 } from "../redux/TMDB";
@@ -17,6 +19,8 @@ const TvDetails = () => {
   const { data: credits } = useGetTvCraditsQuery(tv_id);
   const { data: videos } = useGetTvVideoQuery(tv_id);
   const {data: reviews} = useGetTvReviewsQuery(tv_id)
+  const {data: similars} = useGetTvSimilarQuery(tv_id)
+  const {data: recommends} = useGetTvRecommendQuery(tv_id)
 
   console.log(videos);
 
@@ -74,6 +78,12 @@ const TvDetails = () => {
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <Reviews reviews={reviews} loading={isFetching} />
+              </section>
+              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                <Similar similars={similars} loading={isFetching} />
+              </section>
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                <Recommend recommends={recommends} loading={isFetching} />
               </section>
             </div>
           )}

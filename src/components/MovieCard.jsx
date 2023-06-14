@@ -17,7 +17,11 @@ const MovieCard = ({ Media, isFetching, error }) => {
     const handleClick = (e) => {
       e.preventDefault();
       window.scrollTo(0,0);
-      navigate(`/${Media.media_type}/${Media.id}`)
+      if (Media.media_type) {
+        navigate(`/${Media.media_type}/${Media.id}`);
+      } else {
+       error("No route available")
+      }
     }
 
     if(error) return "Something went wrong"

@@ -7,6 +7,8 @@ import DetailsHeader from "./Details/DetailsHeader";
 import Cast from "./Details/cast";
 import VideoClips from "./Details/VideoClips";
 import Reviews from "./Details/Reviews";
+import Similar from "./Details/Similar";
+import Recommend from "./Details/Recommend";
 
 
 export {
@@ -18,5 +20,7 @@ export {
     DetailsHeader,
     Cast,
     VideoClips,
-    Reviews
+    Reviews,
+    Similar,
+    Recommend
 }
