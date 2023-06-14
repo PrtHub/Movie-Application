@@ -6,7 +6,7 @@ import LazyImg from "./LazyImg";
 import { BsPlayCircle } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
 
-const DetailsHeader = ({ details, platforms, crew, loading, acrew }) => {
+const DetailsHeader = ({ details, platforms, crew, loading }) => {
   // date
   const formatDate = (dateStr) => {
     const options = { month: "short", day: "2-digit", year: "numeric" };
