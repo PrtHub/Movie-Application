@@ -3,6 +3,7 @@ import { DetailsHeader, Error } from "../components";
 import {
   useGetMovieCraditsQuery,
   useGetMovieDetailsQuery,
+  useGetMovieVideoQuery,
   useGetWatchMovieQuery,
 } from "../redux/TMDB";
 import { useParams } from "react-router-dom";
@@ -16,6 +17,7 @@ const MovieDetails = () => {
   } = useGetMovieDetailsQuery(movie_id);
   const { data: platforms } = useGetWatchMovieQuery(movie_id);
   const { data: credits } = useGetMovieCraditsQuery(movie_id);
+  const {data: videos} = useGetMovieVideoQuery(movie_id)
 
   const skeleton = () => {
     return (
@@ -59,6 +61,7 @@ const MovieDetails = () => {
                 details={details}
                 platforms={platforms?.results?.IN}
                 crew={credits?.crew}
+                video={videos?.results?.[0]}
               />
             </div>
           )}

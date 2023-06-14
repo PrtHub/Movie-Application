@@ -12,7 +12,7 @@ const VideoPopUp = ({ setShow, videoId, setVideoId }) => {
       <section
         className={`w-full h-full flex justify-center items-center fixed top-0 left-0 z-50`}
       >
-        <main className="relative w-[600px] aspect-video bg-black">
+        <main className="relative w-[600px] lg:w-[800px] aspect-video bg-black">
           <span
             className="absolute top-0 right-0 text-white cursor-pointer"
             onClick={hidePopup}
