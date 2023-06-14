@@ -57,7 +57,7 @@ const Hero = () => {
             <div className="upper-layer"></div>
             <div className="lower-layer"></div>
             <ContentWrapper>
-              <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center px-0 sm:px-10 gap-10 z-40">
+              <main className="h-full w-full relative mx-auto flex flex-col items-center sm:items-start justify-center  gap-10 z-40">
                 <section className="flex flex-col items-center sm:items-start justify-center text-center sm:text-left">
                   <h1 className="text-4xl md:text-7xl font-bold ">Welcome</h1>
                   <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold">
