@@ -55,7 +55,7 @@ const Cast = ({ casts, loading }) => {
           </section>
         ) : (
           <>
-            <div className="castSkeleton">
+            <div className="w-full h-full overflow-hidden">
               {skeleton()}
               {skeleton()}
               {skeleton()}
