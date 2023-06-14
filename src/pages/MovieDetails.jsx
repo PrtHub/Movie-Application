@@ -1,6 +1,6 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { DetailsHeader } from "../container";
+import { Cast, DetailsHeader } from "../container";
 import {
   useGetMovieCraditsQuery,
   useGetMovieDetailsQuery,
@@ -64,6 +64,9 @@ const MovieDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
+              <section className="flex flex-row gap-5 overflow-x-scroll">
+              <Cast casts={credits?.cast} loading={isFetching}/>
+              </section>
             </div>
           )}
         </>
