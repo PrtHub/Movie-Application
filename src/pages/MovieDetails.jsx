@@ -29,7 +29,7 @@ const MovieDetails = () => {
               <div className="w-full h-full object-cover object-center rounded " />
             </section>
             <section className="w-full h-full flex flex-col items-start justify-start gap- animate-pulse">
-              <section className="w-[80%] full flex flex-col animate-pulse gap-5">
+              <section className="w-[80%] h-full flex flex-col animate-pulse gap-5">
                 <div className="w-[80%] h-6 bg-skeleton" />
                 <div className="w-[70%] h-6 bg-skeleton"></div>
               </section>
