@@ -18,7 +18,7 @@ const Reviews = ({ reviews, loading }) => {
             {reviews?.results?.map((review) => (
               <div
                 key={review.id}
-                className="w-full h-full flex flex-col items-start justify-center border-[1px] border-skeleton p-4 gap-4"
+                className="w-[300px] sm:w-[550px] md:w-[648px] h-full flex flex-col items-start justify-center border-[1px] border-skeleton p-4 gap-4"
               >
                 <section className="w-full h-full flex flex-col items-start gap-1">
                   <h1 className="flex text-xl font-semibold gap-2">
@@ -36,7 +36,7 @@ const Reviews = ({ reviews, loading }) => {
                     on <span>{formatDate(review.updated_at)}</span>
                   </p>
                 </section>
-                <section className="w-[300px] sm:w-[550px] md:w-[648px] h-full ">
+                <section className="w-full h-full ">
                   <p className="text-base font-normal ">
                     {review.content.slice(0, 320)}....
                   </p>
