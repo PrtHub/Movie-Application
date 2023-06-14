@@ -22,12 +22,12 @@ import { useParams } from "react-router-dom";
 const TvDetails = () => {
   const { tv_id } = useParams();
   const { data: details, isFetching, error } = useGetTvDetailsQuery(tv_id);
-  const { data: platforms } = useGetWatchTvQuery(tv_id);
-  const { data: credits } = useGetTvCraditsQuery(tv_id);
-  const { data: videos } = useGetTvVideoQuery(tv_id);
-  const { data: reviews } = useGetTvReviewsQuery(tv_id);
-  const { data: similars } = useGetTvSimilarQuery(tv_id);
-  const { data: recommends } = useGetTvRecommendQuery(tv_id);
+  const { data: platforms} = useGetWatchTvQuery(tv_id);
+  const { data: credits, isFetching: castLoading } = useGetTvCraditsQuery(tv_id);
+  const { data: videos, isFetching: videosLoading} = useGetTvVideoQuery(tv_id);
+  const { data: reviews, isFetching: reviewsLoading } = useGetTvReviewsQuery(tv_id);
+  const { data: similars, isFetching: similarsLoading } = useGetTvSimilarQuery(tv_id);
+  const { data: recommends, isFetching: recommendsLoading } = useGetTvRecommendQuery(tv_id);
 
   console.log(videos);
 
@@ -78,21 +78,21 @@ const TvDetails = () => {
                 video={videos?.results?.[0]}
               />
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Cast casts={credits?.cast} loading={isFetching} />
+                <Cast casts={credits?.cast} loading={castLoading} />
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <VideoClips videos={videos} loading={isFetching} />
+                <VideoClips videos={videos} loading={videosLoading} />
               </section>
               {reviews && reviews.results.length > 0 && (
                 <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                  <Reviews reviews={reviews} loading={isFetching} />
+                  <Reviews reviews={reviews} loading={reviewsLoading} />
                 </section>
               )}
               <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Similar similars={similars} loading={isFetching} />
+                <Similar similars={similars} loading={similarsLoading} />
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Recommend recommends={recommends} loading={isFetching} />
+                <Recommend recommends={recommends} loading={recommendsLoading} />
               </section>
             </div>
           )}

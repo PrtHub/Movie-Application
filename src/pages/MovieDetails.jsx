@@ -21,11 +21,11 @@ const MovieDetails = () => {
     error
   } = useGetMovieDetailsQuery(movie_id);
   const { data: platforms } = useGetWatchMovieQuery(movie_id)
-  const { data: credits } = useGetMovieCraditsQuery(movie_id)
-  const {data: videos} = useGetMovieVideoQuery(movie_id)
-  const {data: reviews} = useGetMovieReviewsQuery(movie_id)
-  const {data: similars} = useGetMovieSimilarQuery(movie_id)
-  const {data: recommends} = useGetMovieRecommendQuery(movie_id)
+  const { data: credits, isFetching: castLoading } = useGetMovieCraditsQuery(movie_id)
+  const {data: videos, isFetching: videosLoading} = useGetMovieVideoQuery(movie_id)
+  const {data: reviews, isFetching: reviewsLoading} = useGetMovieReviewsQuery(movie_id)
+  const {data: similars, isFetching: similarsLoading} = useGetMovieSimilarQuery(movie_id)
+  const {data: recommends, isFetching: recommendsLoading} = useGetMovieRecommendQuery(movie_id)
 
   const skeleton = () => {
     return (
@@ -72,19 +72,19 @@ const MovieDetails = () => {
                 video={videos?.results?.[0]}
               />
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-              <Cast casts={credits?.cast} loading={isFetching}/>
+              <Cast casts={credits?.cast} loading={castLoading}/>
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <VideoClips videos={videos} loading={isFetching} />
+                <VideoClips videos={videos} loading={videosLoading} />
               </section>
               {reviews && reviews.results.length > 0 && <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Reviews reviews={reviews} loading={isFetching} />
+                <Reviews reviews={reviews} loading={reviewsLoading} />
               </section>}
               <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Similar similars={similars} loading={isFetching} />
+                <Similar similars={similars} loading={similarsLoading}/>
               </section>
               <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Recommend recommends={recommends} loading={isFetching} />
+                <Recommend recommends={recommends} loading={recommendsLoading} />
               </section>
             </div>
           )}
