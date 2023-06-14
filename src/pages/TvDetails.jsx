@@ -22,12 +22,16 @@ import { useParams } from "react-router-dom";
 const TvDetails = () => {
   const { tv_id } = useParams();
   const { data: details, isFetching, error } = useGetTvDetailsQuery(tv_id);
-  const { data: platforms} = useGetWatchTvQuery(tv_id);
-  const { data: credits, isFetching: castLoading } = useGetTvCraditsQuery(tv_id);
-  const { data: videos, isFetching: videosLoading} = useGetTvVideoQuery(tv_id);
-  const { data: reviews, isFetching: reviewsLoading } = useGetTvReviewsQuery(tv_id);
-  const { data: similars, isFetching: similarsLoading } = useGetTvSimilarQuery(tv_id);
-  const { data: recommends, isFetching: recommendsLoading } = useGetTvRecommendQuery(tv_id);
+  const { data: platforms } = useGetWatchTvQuery(tv_id);
+  const { data: credits, isFetching: castLoading } =
+    useGetTvCraditsQuery(tv_id);
+  const { data: videos, isFetching: videosLoading } = useGetTvVideoQuery(tv_id);
+  const { data: reviews, isFetching: reviewsLoading } =
+    useGetTvReviewsQuery(tv_id);
+  const { data: similars, isFetching: similarsLoading } =
+    useGetTvSimilarQuery(tv_id);
+  const { data: recommends, isFetching: recommendsLoading } =
+    useGetTvRecommendQuery(tv_id);
 
   console.log(videos);
 
@@ -77,12 +81,22 @@ const TvDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Cast casts={credits?.cast} loading={castLoading} />
-              </section>
+              {credits?.cast && credits?.cast.length > 0 ? (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <Cast casts={credits?.cast} loading={castLoading} />
+                </section>
+              ) : (
+                <>
+                  <ContentWrapper>No Cast Available </ContentWrapper>
+                </>
+              )}
+              { videos && videos.length > 0 ? (
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={videosLoading} />
               </section>
+              ) : (
+                <ContentWrapper>No Videos Available</ContentWrapper>
+              )}
               {reviews && reviews.results.length > 0 && (
                 <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                   <Reviews reviews={reviews} loading={reviewsLoading} />
@@ -92,7 +106,10 @@ const TvDetails = () => {
                 <Similar similars={similars} loading={similarsLoading} />
               </section>
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Recommend recommends={recommends} loading={recommendsLoading} />
+                <Recommend
+                  recommends={recommends}
+                  loading={recommendsLoading}
+                />
               </section>
             </div>
           )}
