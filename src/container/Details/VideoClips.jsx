@@ -13,7 +13,7 @@ const VideoClips = ({ videos, loading }) => {
   return (
     <ContentWrapper>
       {!loading ? (
-        <section className="w-full h-full flex flex-col items-start gap-10 px-10 relative">
+        <section className="w-full h-full flex flex-col items-start gap-10 relative">
           <h1 className="text-2xl sm:text-3xl font-semibold">
             Official Videos
           </h1>

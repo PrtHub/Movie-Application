@@ -1,9 +1,10 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { Cast, DetailsHeader, VideoClips } from "../container";
+import { Cast, DetailsHeader, Reviews, VideoClips } from "../container";
 import {
   useGetTvCraditsQuery,
   useGetTvDetailsQuery,
+  useGetTvReviewsQuery,
   useGetTvVideoQuery,
   useGetWatchTvQuery,
 } from "../redux/TMDB";
@@ -15,6 +16,7 @@ const TvDetails = () => {
   const { data: platforms } = useGetWatchTvQuery(tv_id);
   const { data: credits } = useGetTvCraditsQuery(tv_id);
   const { data: videos } = useGetTvVideoQuery(tv_id);
+  const {data: reviews} = useGetTvReviewsQuery(tv_id)
 
   console.log(videos);
 
@@ -64,11 +66,14 @@ const TvDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-              <section className="py-10 px-10 flex flex-row gap-5 overflow-x-scroll">
+              <section className=" flex flex-row gap-5 overflow-x-scroll">
                 <Cast casts={credits?.cast} loading={isFetching} />
               </section>
-              <section className="py-10 px-10 flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={isFetching} />
+              </section>
+              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                <Reviews reviews={reviews} loading={isFetching} />
               </section>
             </div>
           )}

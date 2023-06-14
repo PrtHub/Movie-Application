@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import ContentWrapper from "../../Hoc/SectionWrapper";
-import LazyImg from "../../components/LazyImg";
+import { LazyImg } from "../../components";
 import { BsPlayCircle } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
 import { useState } from "react";
 import VideoPopUp from "../../components/VideoPopUp";
+import ContentWrapper from "../../Hoc/SectionWrapper";
 
-const DetailsHeader = ({ details, platforms, crew, video}) => {
+const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
   // date
@@ -51,6 +51,7 @@ const DetailsHeader = ({ details, platforms, crew, video}) => {
   const creator = crew?.filter((work) => work.job === "Creator");
   const creatorName = creator?.map((c) => c.name);
 
+  if (loading) return "loading";
   const language = details?.spoken_languages
     ?.map((s) => s.english_name)
     .splice(0, 2);
@@ -68,8 +69,8 @@ const DetailsHeader = ({ details, platforms, crew, video}) => {
         </div>
         <div className="lower-layer -mb-2"></div>
         <ContentWrapper>
-          <main className="w-full max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-center items-start gap-10 p-10 absolute top-0 z-40 opacity-100">
-            <section className="w-[400px] h-[550px] lg:h-[480px]">
+          <main className="w-full max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-center items-start gap-10 py-10 absolute top-0 z-40 opacity-100">
+            <section className="w-[320px] sm:w-[400px] h-[450px] sm:h-[550px] lg:h-[480px]">
               <LazyImg
                 src={`https://image.tmdb.org/t/p/original${details?.poster_path}`}
                 className="w-full h-full object-cover object-center rounded"
@@ -87,7 +88,7 @@ const DetailsHeader = ({ details, platforms, crew, video}) => {
                     )
                   </span>
                 </h1>
-                <ul className="flex items-center gap-2">
+                <ul className="flex flex-wrap items-center gap-2">
                   <li className="font-medium text-base ">
                     {details?.release_date || details?.first_air_date}
                   </li>
@@ -109,9 +110,9 @@ const DetailsHeader = ({ details, platforms, crew, video}) => {
                   </li>
                 </ul>
               </section>
-              <section className=" flex items-center gap-5 ">
+              <section className=" flex flex-wrap items-center justify-start gap-2 sm:gap-5 ">
                 <section className="flex items-center gap-1">
-                  <div className="w-12 h-12 rounded-[50%] p-[3px] bg-[#081c22] font-semibold">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-[50%] p-[3px] bg-[#081c22] font-semibold">
                     <CircularProgressbar
                       value={details.vote_average.toFixed(1)}
                       maxValue={10}
@@ -128,31 +129,31 @@ const DetailsHeader = ({ details, platforms, crew, video}) => {
                       })}
                     />
                   </div>
-                  <span className="font-semibold text-lg">User Rating</span>
+                  <span className="font-semibold text-base sm:text-lg">User Rating</span>
                 </section>
 
-                <span className="flex items-center gap-1 font-medium text-lg">
-                  <MdFavorite className="bg-[#081c22] text-4xl p-2 rounded-full cursor-pointer " />
+                <span className="flex items-center gap-1 font-medium text-base sm:text-lg">
+                  <MdFavorite className="bg-[#081c22] text-3xl sm:text-4xl p-1 sm:p-2 rounded-full cursor-pointer " />
                   Favorite
                 </span>
                 <span
-                  className="flex items-center gap-1 font-semibold text-lg cursor-pointer"
+                  className="flex items-center gap-1 font-semibold text-base sm:text-lg cursor-pointer"
                   onClick={() => {
                     setShow(true);
                     setVideoId(video.key);
                   }}
                 >
-                  <BsPlayCircle className="text-4xl" />
+                  <BsPlayCircle className=" text-[26px] sm:text-4xl" />
                   Play Trailer
                 </span>
               </section>
-              <article className="flex flex-col items-start gap-4">
+              <article className="w-full flex flex-col items-start gap-4">
                 <p className="text-base italic font-medium">
                   {details.tagline}
                 </p>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 pr-10">
                   <h1 className="text-2xl font-semibold">Overview</h1>
-                  <p className="text-base font-medium">{details.overview}</p>
+                  <p className="w-full max-w-7xl text-base font-normal">{details.overview}</p>
                 </div>
               </article>
               <section className="w-full">

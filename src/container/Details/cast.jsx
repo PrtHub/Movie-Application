@@ -26,7 +26,7 @@ const Cast = ({ casts, loading }) => {
     <>
       <ContentWrapper>
         {!loading ? (
-          <section className="w-full h-full flex flex-col items-start gap-10 px-10">
+          <section className="w-full h-full flex flex-col items-start gap-10">
             <h1 className="text-2xl sm:text-3xl font-semibold">Top Cast</h1>
             <main className="w-full h-full flex flex-row gap-5 overflow-x-scroll">
               {casts?.map((cast) => {
