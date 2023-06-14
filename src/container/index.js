@@ -9,6 +9,7 @@ import VideoClips from "./Details/VideoClips";
 import Reviews from "./Details/Reviews";
 import Similar from "./Details/Similar";
 import Recommend from "./Details/Recommend";
+import KnownFor from "./Details/KnownFor";
 
 
 export {
@@ -22,5 +23,6 @@ export {
     VideoClips,
     Reviews,
     Similar,
-    Recommend
+    Recommend,
+    KnownFor
 }
