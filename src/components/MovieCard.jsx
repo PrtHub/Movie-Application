@@ -16,6 +16,7 @@ const MovieCard = ({ Media, isFetching, error }) => {
 
     const handleClick = (e) => {
       e.preventDefault();
+      window.scrollTo(0,0);
       navigate(`/${Media.media_type}/${Media.id}`)
     }
 

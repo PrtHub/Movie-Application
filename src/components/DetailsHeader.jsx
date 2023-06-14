@@ -6,7 +6,7 @@ import LazyImg from "./LazyImg";
 import { BsPlayCircle } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
 
-const DetailsHeader = ({ details, platforms, crew, loading }) => {
+const DetailsHeader = ({ details, platforms, crew, loading, acrew }) => {
   // date
   const formatDate = (dateStr) => {
     const options = { month: "short", day: "2-digit", year: "numeric" };
@@ -55,7 +55,6 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
 
   const creator = crew?.filter((work) => work.job === "Creator");
   const creatorName = creator?.map((c) => c.name);
-  const crertors = creatorName ? creatorName : null
 
   if (loading) return "loading";
 
@@ -200,12 +199,12 @@ const DetailsHeader = ({ details, platforms, crew, loading }) => {
                   <hr />
                 </section>
               )}
-              {crertors && (
+              {creatorName && creatorName.length > 0 && (
                 <section className="w-full">
                   <p className="text-xl font-medium">
                     Creator:{" "}
                     <span className="text-base font-normal ml-1">
-                      {crertors}
+                      {creatorName}
                     </span>
                   </p>
                   <hr />
