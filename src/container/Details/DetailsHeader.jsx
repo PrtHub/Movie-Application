@@ -8,7 +8,7 @@ import { MdFavorite } from "react-icons/md";
 import { useState } from "react";
 import VideoPopUp from "../../components/VideoPopUp";
 
-const DetailsHeader = ({ details, platforms, crew, video, loading }) => {
+const DetailsHeader = ({ details, platforms, crew, video}) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
   // date
