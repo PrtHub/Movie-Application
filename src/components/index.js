@@ -7,6 +7,7 @@ import CircleRating from "./CircleRating";
 import PeopleCard from "./PeopleCard";
 import SearchCard from "./SearchCard";
 import Error from "./Error";
+import Loader from "./Loader";
 
 export {
     Navbar,
@@ -17,5 +18,6 @@ export {
     CircleRating,
     PeopleCard,
     SearchCard,
-    Error
+    Error,
+    Loader
 }

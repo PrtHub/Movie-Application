@@ -77,7 +77,10 @@ export const tmdbApi = createApi({
     getKnownForDetails: builder.query({
       query: (person_id) => `/person/${person_id}/movie_credits`
     }), 
+    getNowPlaingMovie: builder.query({
+      query: (pageNum) => `/movie/now_playing?page=${pageNum}`
+    }), 
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery, useGetTvSimilarQuery, useGetMovieRecommendQuery, useGetMovieSimilarQuery, useGetTvRecommendQuery, useGetPeopleDetailsQuery, useGetKnownForDetailsQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery, useGetTvSimilarQuery, useGetMovieRecommendQuery, useGetMovieSimilarQuery, useGetTvRecommendQuery, useGetPeopleDetailsQuery, useGetKnownForDetailsQuery, useGetNowPlaingMovieQuery } = tmdbApi;
