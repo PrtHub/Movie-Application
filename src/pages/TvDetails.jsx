@@ -90,10 +90,10 @@ const TvDetails = () => {
                   <ContentWrapper>No Cast Available </ContentWrapper>
                 </>
               )}
-              { videos && videos.length > 0 ? (
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <VideoClips videos={videos} loading={videosLoading} />
-              </section>
+              {videos && videos.length > 0 ? (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <VideoClips videos={videos} loading={videosLoading} />
+                </section>
               ) : (
                 <ContentWrapper>No Videos Available</ContentWrapper>
               )}
@@ -102,15 +102,23 @@ const TvDetails = () => {
                   <Reviews reviews={reviews} loading={reviewsLoading} />
                 </section>
               )}
-              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Similar similars={similars} loading={similarsLoading} />
-              </section>
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Recommend
-                  recommends={recommends}
-                  loading={recommendsLoading}
-                />
-              </section>
+              {similars && similars?.results?.length > 0 ? (
+                <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                  <Similar similars={similars} loading={similarsLoading} />
+                </section>
+              ) : (
+                <ContentWrapper>Not Available</ContentWrapper>
+              )}
+              {recommends && recommends?.results?.length > 0 ? (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <Recommend
+                    recommends={recommends}
+                    loading={recommendsLoading}
+                  />
+                </section>
+              ) : (
+                <ContentWrapper>No Recomandation Available</ContentWrapper>
+              )}
             </div>
           )}
         </>

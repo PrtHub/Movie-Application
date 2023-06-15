@@ -1,6 +1,13 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error } from "../components";
-import { Cast, DetailsHeader, Recommend, Reviews, Similar, VideoClips } from "../container";
+import {
+  Cast,
+  DetailsHeader,
+  Recommend,
+  Reviews,
+  Similar,
+  VideoClips,
+} from "../container";
 
 import {
   useGetMovieCraditsQuery,
@@ -18,14 +25,19 @@ const MovieDetails = () => {
   const {
     data: details,
     isFetching,
-    error
+    error,
   } = useGetMovieDetailsQuery(movie_id);
-  const { data: platforms } = useGetWatchMovieQuery(movie_id)
-  const { data: credits, isFetching: castLoading } = useGetMovieCraditsQuery(movie_id)
-  const {data: videos, isFetching: videosLoading} = useGetMovieVideoQuery(movie_id)
-  const {data: reviews, isFetching: reviewsLoading} = useGetMovieReviewsQuery(movie_id)
-  const {data: similars, isFetching: similarsLoading} = useGetMovieSimilarQuery(movie_id)
-  const {data: recommends, isFetching: recommendsLoading} = useGetMovieRecommendQuery(movie_id)
+  const { data: platforms } = useGetWatchMovieQuery(movie_id);
+  const { data: credits, isFetching: castLoading } =
+    useGetMovieCraditsQuery(movie_id);
+  const { data: videos, isFetching: videosLoading } =
+    useGetMovieVideoQuery(movie_id);
+  const { data: reviews, isFetching: reviewsLoading } =
+    useGetMovieReviewsQuery(movie_id);
+  const { data: similars, isFetching: similarsLoading } =
+    useGetMovieSimilarQuery(movie_id);
+  const { data: recommends, isFetching: recommendsLoading } =
+    useGetMovieRecommendQuery(movie_id);
 
   const skeleton = () => {
     return (
@@ -57,7 +69,7 @@ const MovieDetails = () => {
     );
   };
 
-  if(error) return <Error/>
+  if (error) return <Error />;
 
   return (
     <>
@@ -71,21 +83,42 @@ const MovieDetails = () => {
                 crew={credits?.crew}
                 video={videos?.results?.[0]}
               />
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-              <Cast casts={credits?.cast} loading={castLoading}/>
-              </section>
+              {credits?.cast && credits?.cast.length > 0 ? (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <Cast casts={credits?.cast} loading={castLoading} />
+                </section>
+              ) : (
+                <>
+                  <ContentWrapper>No Cast Available </ContentWrapper>
+                </>
+              )}
+
               <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
                 <VideoClips videos={videos} loading={videosLoading} />
               </section>
-              {reviews && reviews.results.length > 0 && <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
-                <Reviews reviews={reviews} loading={reviewsLoading} />
-              </section>}
-              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Similar similars={similars} loading={similarsLoading}/>
-              </section>
-              <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
-                <Recommend recommends={recommends} loading={recommendsLoading} />
-              </section>
+
+              {reviews && reviews.results.length > 0 && (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <Reviews reviews={reviews} loading={reviewsLoading} />
+                </section>
+              )}
+              {similars && similars?.results?.length > 0 ? (
+                <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                  <Similar similars={similars} loading={similarsLoading} />
+                </section>
+              ) : (
+                <ContentWrapper>Not Available</ContentWrapper>
+              )}
+              {recommends && recommends?.results?.length > 0 ? (
+                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                  <Recommend
+                    recommends={recommends}
+                    loading={recommendsLoading}
+                  />
+                </section>
+              ) : (
+                <ContentWrapper>No Recomandation Available</ContentWrapper>
+              )}
             </div>
           )}
         </>
