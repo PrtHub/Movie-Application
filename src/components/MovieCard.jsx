@@ -28,7 +28,7 @@ const MovieCard = ({ Media, isFetching, error }) => {
 
     const skeleton = () => {
       return (
-        <main className="w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
+        <main className="w-36 h-56  animate-pulse flex flex-col items-center justify-center gap-2">
         <div className="w-full h-full bg-skeleton rounded "/>
         <section className="w-full flex flex-col gap-2 ">
          <div className="w-full h-4 bg-skeleton rounded"/>
@@ -41,8 +41,8 @@ const MovieCard = ({ Media, isFetching, error }) => {
   return (
     <>
       {!isFetching ? (
-        <main className="w-40 h-full flex flex-col items-start justify-start gap-5">
-          <section className="w-full h-60 relative cursor-pointer" onClick={handleClick}>
+        <main className="w-36 h-full flex flex-col items-start justify-start gap-5">
+          <section className="w-full h-56 relative cursor-pointer" onClick={handleClick}>
             <LazyImg
               src={`https://image.tmdb.org/t/p/original${Media.poster_path}` || poster}
               alt="Poster"

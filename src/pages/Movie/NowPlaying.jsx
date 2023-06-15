@@ -6,14 +6,12 @@ import {
   useGetNowPlaingMovieQuery,
 } from "../../redux/TMDB";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Select from 'react-select';
-
-
+import Select from "react-select";
 
 const NowPlaying = () => {
   const [pageNum, setPageNum] = useState(1);
   const [allMovies, setAllMovies] = useState([]);
-  const [genre, setGenre] = useState(null)
+  const [genre, setGenre] = useState(null);
   const [media_type, setMedia_type] = useState("movie");
   const {
     data: movies,
@@ -21,8 +19,6 @@ const NowPlaying = () => {
     error,
   } = useGetNowPlaingMovieQuery(pageNum);
   const { data: genresData } = useGetGenresDataQuery(media_type);
-
-  console.log(genresData);
 
   useEffect(() => {
     if (movies?.results) {
@@ -34,13 +30,12 @@ const NowPlaying = () => {
     setPageNum((prevPageNum) => prevPageNum + 1);
   };
 
-
   const onChange = (selectedOptions) => {
     setGenre(selectedOptions);
-  
+
     // Filter movies based on selected genres
     const selectedGenreIds = selectedOptions.map((option) => option.id);
-    
+
     // Check if any genre is selected
     if (selectedGenreIds.length === 0) {
       // Show all movies when no genre is selected
@@ -60,14 +55,13 @@ const NowPlaying = () => {
       setPageNum(1);
     }
   }, [genre]);
-  
 
   if (error) return <Error />;
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full py-10">
       <ContentWrapper>
-        <section className="w-full h-full flex items-center justify-end mb-10 px-20">
+        <section className="w-full h-full flex items-center justify-end mb-10 px-10">
           <Select
             isMulti
             name="genres"
@@ -79,7 +73,7 @@ const NowPlaying = () => {
             getOptionValue={(option) => option.id}
             placeholder="Select genres"
             classNamePrefix="react-select"
-            className="w-[300px] text-black"
+            className="w-full sm:w-[300px] text-black"
           />
         </section>
         <InfiniteScroll
