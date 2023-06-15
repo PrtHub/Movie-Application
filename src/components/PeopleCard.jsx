@@ -5,7 +5,7 @@ import LazyImg from "./LazyImg"
 import cast from '../assets/cast.jpg'
 
 
-const PeopleCard = ({person, isFetching, error}) => {
+const PeopleCard = ({person}) => {
      const navigate = useNavigate();
     const handleClick  = (e) => {
       e.preventDefault();
@@ -16,27 +16,14 @@ const PeopleCard = ({person, isFetching, error}) => {
       navigate(`/person/${person.id}`)
     }
 
-    if(error) return "Something went wrong"
-
-    const skeleton = () => {
-        return (
-          <main className="w-40 h-60 animate-pulse flex flex-col items-center justify-center gap-2">
-          <div className="w-full h-full bg-[#262728] rounded"/>
-          <section className="w-full flex flex-col gap-2">
-           <div className="w-full h-4 bg-skeleton rounded"/>
-           <div className="w-[80%] h-4 bg-skeleton rounded"/>
-          </section>
-        </main>
-        );
-      };
+    const imgUrl = person.profile_path ? `https://image.tmdb.org/t/p/original${person.profile_path}` : cast
 
   return (
     <>
-     {!isFetching ? (
-        <main className="w-40 h-fit flex flex-col items-start justify-start gap-5">
-          <section className="w-full h-60 relative cursor-pointer" onClick={handleClick}>
+        <main className="w-36 h-fit flex flex-col items-start justify-start gap-5">
+          <section className="w-full h-56 relative cursor-pointer" onClick={handleClick}>
             <LazyImg
-              src={`https://image.tmdb.org/t/p/original${person.profile_path}` || cast}
+              src={imgUrl}
               alt="Poster"
               className="w-full h-full object-contain object-center rounded"
             />
@@ -47,17 +34,6 @@ const PeopleCard = ({person, isFetching, error}) => {
             <span className="text-gray-400">{person.known_for_department}</span>
            </section>
         </main>
-      ) : (
-        <div className="flex overflow-y-hidden px-5 gap-5">
-        {skeleton()}
-        {skeleton()}
-        {skeleton()}
-        {skeleton()}
-        {skeleton()}
-        {skeleton()}
-        {skeleton()}
-        </div>
-      )}
     </>
   )
 }
