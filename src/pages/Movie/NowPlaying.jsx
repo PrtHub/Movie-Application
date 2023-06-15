@@ -12,7 +12,7 @@ const NowPlaying = () => {
   const [pageNum, setPageNum] = useState(1);
   const [allMovies, setAllMovies] = useState([]);
   const [genre, setGenre] = useState(null);
-  const [media_type, setMedia_type] = useState("movie");
+  const media_type = "movie"
   const {
     data: movies,
     isFetching,
