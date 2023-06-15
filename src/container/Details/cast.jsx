@@ -39,7 +39,7 @@ const Cast = ({ casts, loading }) => {
                     className="w-full h-full flex flex-col items-center justify-center gap-2"
                   >
                     <section
-                      className="w-32 h-32 rounded-full overflow-hidden"
+                      className="w-32 h-32 rounded-full overflow-hidden cursor-pointer"
                       onClick={(e) => {
                         e.preventDefault();
                         window.scrollTo(0, 0);
