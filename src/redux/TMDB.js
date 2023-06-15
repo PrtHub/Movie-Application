@@ -101,10 +101,13 @@ export const tmdbApi = createApi({
     getTvTopRated: builder.query({
       query: (pageNum) => `/tv/top_rated?page=${pageNum}`
     }), 
+    getPopularPeople: builder.query({
+      query: (pageNum) => `/person/popular?page=${pageNum}`
+    }), 
     getGenresData: builder.query({
       query: (media_type) => `genre/${media_type}/list`
     }), 
   }),
 });
 
-export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery, useGetTvSimilarQuery, useGetMovieRecommendQuery, useGetMovieSimilarQuery, useGetTvRecommendQuery, useGetPeopleDetailsQuery, useGetKnownForDetailsQuery, useGetNowPlaingMovieQuery, useGetGenresDataQuery, useGetPopularMovieQuery, useGetTopRatedMovieQuery, useGetUpcomingMovieQuery, useGetAiringTodayQuery, useGetOnTheAirQuery, useGetTvTopRatedQuery, useGetTvPopularQuery } = tmdbApi;
+export const { useGetMovieQuery, useGetTrendingMovieQuery, useGetTrendingTvQuery, useGetTrendingPeopleQuery, useGetSearchMultiQuery, useGetMovieDetailsQuery,useGetTvDetailsQuery, useGetWatchMovieQuery, useGetWatchTvQuery, useGetMovieCraditsQuery, useGetTvCraditsQuery, useGetMovieVideoQuery, useGetTvVideoQuery, useGetTvReviewsQuery, useGetMovieReviewsQuery, useGetTvSimilarQuery, useGetMovieRecommendQuery, useGetMovieSimilarQuery, useGetTvRecommendQuery, useGetPeopleDetailsQuery, useGetKnownForDetailsQuery, useGetNowPlaingMovieQuery, useGetGenresDataQuery, useGetPopularMovieQuery, useGetTopRatedMovieQuery, useGetUpcomingMovieQuery, useGetAiringTodayQuery, useGetOnTheAirQuery, useGetTvTopRatedQuery, useGetTvPopularQuery, useGetPopularPeopleQuery } = tmdbApi;
