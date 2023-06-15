@@ -28,7 +28,7 @@ const KnownFor = ({ movie, isLoading }) => {
 
   const skeleton = () => {
     return (
-      <main className="w-36 h-56 animate-pulse flex flex-col items-center justify-center gap-2">
+      <main className="w-40 h-60 animate-pulse flex flex-col items-center justify-center gap-2">
       <div className="w-full h-full bg-skeleton rounded "/>
       <section className="w-full flex flex-col gap-2 animate-pulse">
        <div className="w-full h-4 bg-skeleton rounded"/>
@@ -63,7 +63,7 @@ const KnownFor = ({ movie, isLoading }) => {
           </section>
         </div>
       ) : (
-        <div className="flex overflow-y-hidden px-5 gap-5">
+        <div className="w-full h-full flex flex-wrap justify-center overflow-x-hidden px-5 gap-5">
         {skeleton()}
         {skeleton()}
         {skeleton()}

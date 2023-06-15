@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom"
 import { animateScroll as scroll } from 'react-scroll';
 import LazyImg from "./LazyImg"
-import cast from '../assets/cast.jpg'
+import cast from '../assets/avatar.png'
 
 
 const PeopleCard = ({person}) => {
@@ -25,7 +25,7 @@ const PeopleCard = ({person}) => {
             <LazyImg
               src={imgUrl}
               alt="Poster"
-              className="w-full h-full object-contain object-center rounded"
+              className="w-full h-full object-center object-cover rounded"
             />
              {/* <CircleRating rating={Media.vote_average.toFixed(1)}/> */}
           </section>

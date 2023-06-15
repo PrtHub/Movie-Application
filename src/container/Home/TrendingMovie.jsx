@@ -14,7 +14,7 @@ const TrendingMovie = () => {
 
   const skeleton = () => {
     return (
-      <main className="w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
+      <main className="w-36 sm:w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
         <div className="w-full h-full bg-skeleton rounded " />
         <section className="w-full flex flex-col gap-2 ">
           <div className="w-full h-4 bg-skeleton rounded" />
@@ -47,7 +47,9 @@ const TrendingMovie = () => {
               ))}
             </main>
           ) : (
-            <div className="flex overflow-y-hidden px-5 gap-5">
+            <div className="w-full h-60 gap-2 flex flex-wrap overflow-x-scroll">
+              {skeleton()}
+              {skeleton()}
               {skeleton()}
               {skeleton()}
               {skeleton()}
