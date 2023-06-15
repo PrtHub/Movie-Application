@@ -15,6 +15,8 @@ const MovieCard = ({ Media, isFetching, error }) => {
         return date.toLocaleDateString('en-US', options)
     }
 
+    
+
     const handleClick = (e) => {
       e.preventDefault();
       scroll.scrollToTop({
@@ -24,7 +26,7 @@ const MovieCard = ({ Media, isFetching, error }) => {
       if (Media.media_type) {
         navigate(`/${Media.media_type}/${Media.id}`);
       } else {
-       error("No route available")
+        navigate(`/${Media?.first_air_date ? 'tv' : 'movie'}/${Media.id}`);
       }
     }
 

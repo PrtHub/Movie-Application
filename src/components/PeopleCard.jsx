@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom"
+import { animateScroll as scroll } from 'react-scroll';
 import LazyImg from "./LazyImg"
 import cast from '../assets/cast.jpg'
 
@@ -8,6 +9,10 @@ const PeopleCard = ({person, isFetching, error}) => {
      const navigate = useNavigate();
     const handleClick  = (e) => {
       e.preventDefault();
+      scroll.scrollToTop({
+        duration: 500,
+         smooth: true
+       });
       navigate(`/person/${person.id}`)
     }
 
