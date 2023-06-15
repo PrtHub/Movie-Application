@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
+import { animateScroll as scroll } from 'react-scroll';
 import { LazyImg } from "../../components";
 import poster from "../../assets/poster.jpg";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,10 @@ const KnownFor = ({ movie, isLoading }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    window.scrollTo(0, 0);
+    scroll.scrollToTop({
+      duration: 500,
+       smooth: true
+     });
     if (movie) {
       navigate(`/movie/${movie.id}`);
     } else {

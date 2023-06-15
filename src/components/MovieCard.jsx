@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from 'react-scroll';
 import CircleRating from "./CircleRating";
 import LazyImg from "./LazyImg";
 import poster from '../assets/poster.jpg'
@@ -16,7 +17,10 @@ const MovieCard = ({ Media, isFetching, error }) => {
 
     const handleClick = (e) => {
       e.preventDefault();
-      window.scrollTo(0,0);
+      scroll.scrollToTop({
+        duration: 500,
+         smooth: true
+       });
       if (Media.media_type) {
         navigate(`/${Media.media_type}/${Media.id}`);
       } else {

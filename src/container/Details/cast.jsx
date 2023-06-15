@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from 'react-scroll';
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import avatar from "../../assets/cast.jpg";
 import { LazyImg } from "../../components";
@@ -42,7 +43,10 @@ const Cast = ({ casts, loading }) => {
                       className="w-32 h-32 rounded-full overflow-hidden cursor-pointer"
                       onClick={(e) => {
                         e.preventDefault();
-                        window.scrollTo(0, 0);
+                        scroll.scrollToTop({
+                          duration: 500,
+                           smooth: true
+                         });
                         navigate(`/person/${cast.id}`);
                       }}
                     >
