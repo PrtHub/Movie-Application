@@ -61,28 +61,25 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
     ?.map((s) => s.english_name)
     .splice(0, 2);
 
-    const handleToFav = () => {
-      setIsClicked((prevClicked) => !prevClicked);
-    
-      if (isClicked) {
-        // Remove from favorites
-        dispatch(removeItem(details?.id));
-        toast.info("Content removed from favorites!");
-      } else {
-        // Add to favorites
-        dispatch(
-          addToFav({
-            id: details?.id,
-            img: `https://image.tmdb.org/t/p/original${details?.poster_path}`,
-            name: details?.title || details?.name,
-          })
-        );
-        toast.success("Content added to favorites!");
-      }
-    };
-    
+  const handleToFav = () => {
+    setIsClicked((prevClicked) => !prevClicked);
 
-  
+    if (isClicked) {
+      // Remove from favorites
+      dispatch(removeItem(details?.id));
+      toast.info("Content removed from favorites!");
+    } else {
+      // Add to favorites
+      dispatch(
+        addToFav({
+          id: details?.id,
+          img: `https://image.tmdb.org/t/p/original${details?.poster_path}`,
+          name: details?.title || details?.name,
+        })
+      );
+      toast.success("Content added to favorites!");
+    }
+  };
 
   return (
     <>

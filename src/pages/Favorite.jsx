@@ -46,7 +46,7 @@ const Favorite = () => {
                   key={item.id}
                   className="w-40 h-full flex flex-col items-start justify-start gap-1"
                 >
-                  <section className="w-full h-56 overflow-hidden rounded relative">
+                  <section className="w-full h-56 cursor-pointer overflow-hidden rounded relative">
                     <LazyImg
                       src={item.img}
                       alt="Poster"
@@ -59,7 +59,7 @@ const Favorite = () => {
                         }`}
                         onClick={() => {
                           dispatch(removeItem(item.id));
-                          setIsClicked(true)
+                          setIsClicked(true);
                         }}
                       />
                     </span>
