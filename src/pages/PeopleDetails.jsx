@@ -29,11 +29,11 @@ const PeopleDetails = () => {
               </div>
               <div className="w-full h-full flex flex-col items-start justify-start animate-pulse gap-10">
                 <section className="w-[80%] h-full flex flex-col animate-pulse gap-1">
-                  <div className="w-[80%] h-6 bg-skeleton" />
-                  <div className="w-[70%] h-6 bg-skeleton"></div>
+                  <div className="w-[80%] h-4 bg-skeleton" />
+                  <div className="w-[70%] h-4 bg-skeleton"></div>
                 </section>
                 <section className="w-full h-full flex flex-col gap-2 animate-pulse">
-                  <div className="w-[30%] h-6 bg-skeleton" />
+                  <div className="w-[30%] h-4 bg-skeleton" />
                   <div className="w-[90%] h-20 bg-skeleton" />
                   
                 </section>
