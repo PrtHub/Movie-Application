@@ -26,9 +26,6 @@ export const tmdbApi = createApi({
     getTrendingPeople: builder.query({
       query: (time) => `/trending/person/${time}`,
     }),
-    getSearchMulti: builder.query({
-      query: (query, pageNum) => `/search/multi?query=${query}&page=${pageNum}`,
-    }),
     getMovieDetails: builder.query({
       query: (movie_id) => `/movie/${movie_id}`
     }),
@@ -107,6 +104,13 @@ export const tmdbApi = createApi({
     getGenresData: builder.query({
       query: (media_type) => `genre/${media_type}/list`
     }), 
+    getSearchMulti: builder.query({
+      query: (args) => {
+        const { query, pageNum } = args;
+        return {
+            url: `/search/multi?query=${query}&page=${pageNum}`
+        }}
+    }),
   }),
 });
 

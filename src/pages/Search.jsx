@@ -3,22 +3,27 @@ import ContentWrapper from "../Hoc/SectionWrapper";
 import { useGetSearchMultiQuery } from "../redux/TMDB";
 import { SearchCard } from "../components";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 const Search = () => {
   const { query } = useParams();
   const [pageNum, setPageNum] = useState(1);
-  const { data: Results, isFetching, error, fetchNextPage } = useGetSearchMultiQuery(query, 1);
-  console.log(Results)
+  const [allContent, setAllMovies] = useState([])
+  const { data: content, isFetching, error } = useGetSearchMultiQuery({query, pageNum});
+  console.log(content)
+
+  useEffect(() => {
+    if(content?.results) {
+      setAllMovies((prevContent) =>[ ...prevContent, ...content.results])
+    }
+  }, [content])
 
 
   if(isFetching) return "Loading....."
   if(error) return "Something went wrong"
 
   const fetchNextPageData = () => {
-    fetchNextPage({ query: query, pageNum: pageNum + 1 });
-    setPageNum(pageNum + 1);
+    setPageNum((prevPage) => prevPage + 1)
   };
 
   
@@ -28,11 +33,11 @@ const Search = () => {
       <ContentWrapper>
         <InfiniteScroll
          className="w-full h-full flex flex-wrap items-start justify-start gap-5"
-         dataLength={Results?.pages?.[pageNum]?.results?.length || 0}
+         dataLength={allContent.length}
          next={fetchNextPageData}
-         hasMore={!!Results?.pages?.[pageNum + 1]}
+         hasMore={pageNum <= (content?.total_pages || 0)}
          >
-        {Results?.pages?.[pageNum]?.results?.map((result) => (
+        {allContent.map((result) => (
           <section key={result.id}>
             <SearchCard />
           </section>
