@@ -88,7 +88,7 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
         <div className="w-full h-full">
           <img
             src={`https://image.tmdb.org/t/p/original${details?.backdrop_path}`}
-            alt="backdrop_img"
+            alt=""
             className="w-full h-full object-cover object-center  "
           />
         </div>
