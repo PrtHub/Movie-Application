@@ -68,7 +68,7 @@ const Hero = () => {
                 <section className="w-[80%] sm:w-full flex items-center relative">
                   <input
                     type="text"
-                    placeholder="Search for a movie or tv show...."
+                    placeholder="Search for a movie, tv show, person...."
                     className="w-full h-12 sm:h-14 bg-white outline-none border-none rounded-3xl px-5 text-gray-400 text-base sm:text-lg"
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyUp={searchQueryHandler}

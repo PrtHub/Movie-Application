@@ -172,7 +172,7 @@ const Navbar = () => {
                 <section className="flex items-center gap-2">
                   <input
                     type="text"
-                    placeholder="Search for a movie or tv show...."
+                    placeholder="Search for a movie, tv show, person...."
                     className="px-2 py-1 rounded-3xl outline-none border-none text-gray-400 text-sm sm:text-base"
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyUp={searchQueryHandler}
