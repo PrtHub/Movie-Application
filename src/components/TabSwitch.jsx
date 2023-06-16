@@ -14,7 +14,9 @@ const TabSwitch = ({ onTabChange }) => {
     <div className="flex items-center">
       <button
         className={`mr-4 py-1 px-2 rounded ${
-          activeTab === "day" ? "bg-pink text-white" : "bg-gray-300 text-gray-600"
+          activeTab === "day"
+            ? "bg-pink text-white"
+            : "bg-gray-300 text-gray-600"
         }`}
         onClick={() => handleTabChange("day")}
       >
@@ -22,7 +24,9 @@ const TabSwitch = ({ onTabChange }) => {
       </button>
       <button
         className={`py-1 px-2 rounded ${
-          activeTab === "week" ? "bg-pink text-white" : "bg-gray-300 text-gray-600"
+          activeTab === "week"
+            ? "bg-pink text-white"
+            : "bg-gray-300 text-gray-600"
         }`}
         onClick={() => handleTabChange("week")}
       >

@@ -8,12 +8,11 @@ const Home = () => {
       <section>
         <Hero />
         <TrendingMovie />
-        <TrendingPeople/>
-        <TrendingTv/>
+        <TrendingPeople />
+        <TrendingTv />
       </section>
     </>
   );
 };
-
 
 export default Home;

@@ -7,8 +7,8 @@ import VideoPopUp from "../../components/VideoPopUp";
 import { useState } from "react";
 
 const VideoClips = ({ videos, loading }) => {
-    const [show, setShow] = useState(false);
-    const [videoId, setVideoId] = useState(null);
+  const [show, setShow] = useState(false);
+  const [videoId, setVideoId] = useState(null);
 
   return (
     <ContentWrapper>
@@ -23,11 +23,13 @@ const VideoClips = ({ videos, loading }) => {
                 key={video.id}
                 className="w-full h-full flex flex-col items-center justify-center gap-2"
               >
-                <section className="w-80 h-full overflow-hidden relative"
-                 onClick={() => {
+                <section
+                  className="w-80 h-full overflow-hidden relative"
+                  onClick={() => {
                     setVideoId(video.key);
                     setShow(true);
-                }}>
+                  }}
+                >
                   <LazyImg
                     src={`https://img.youtube.com/vi/${video.key}/maxresdefault.jpg`}
                     className="w-full h-full object-cover object-center"
@@ -43,19 +45,17 @@ const VideoClips = ({ videos, loading }) => {
             ))}
           </main>
           {show && (
-              <VideoPopUp
-                show={show}
-                setShow={setShow}
-                videoId={videoId}
-                setVideoId={setVideoId}
-              />
-            )}
+            <VideoPopUp
+              show={show}
+              setShow={setShow}
+              videoId={videoId}
+              setVideoId={setVideoId}
+            />
+          )}
         </section>
       ) : (
         <>
-          <div className="w-full h-full overflow-hidden">
-          Loading....
-          </div>
+          <div className="w-full h-full overflow-hidden">Loading....</div>
         </>
       )}
     </ContentWrapper>

@@ -23,7 +23,7 @@ const SearchCard = ({ result }) => {
   const imgUrl =
     result.poster_path || result.profile_path || result.backdrop_path
       ? `https://image.tmdb.org/t/p/original${
-          result.poster_path || result.profile_path || result.backdrop_path 
+          result.poster_path || result.profile_path || result.backdrop_path
         }`
       : dummy;
 

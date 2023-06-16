@@ -24,7 +24,7 @@ const TrendingMovie = () => {
     );
   };
 
-  if(error) return <Error/>
+  if (error) return <Error />;
 
   return (
     <>
@@ -40,9 +40,7 @@ const TrendingMovie = () => {
             <main className="flex flex-row gap-5 overflow-x-scroll">
               {Trendings?.results?.map((Media) => (
                 <div key={Media.id}>
-                  <MovieCard
-                    Media={Media}
-                  />
+                  <MovieCard Media={Media} />
                 </div>
               ))}
             </main>

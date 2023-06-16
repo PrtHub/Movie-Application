@@ -17,7 +17,7 @@ const VideoPopUp = ({ setShow, videoId, setVideoId }) => {
             className="absolute top-0 right-0 text-white cursor-pointer"
             onClick={hidePopup}
           >
-            <AiOutlineClose className="text-xl m-1"/>
+            <AiOutlineClose className="text-xl m-1" />
           </span>
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${videoId}`}

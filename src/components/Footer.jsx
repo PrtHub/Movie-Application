@@ -15,11 +15,21 @@ const Footer = () => {
             <div className="w-full flex flex-col sm:flex-row items-start justify-between gap-10 mb-10">
               <section className="flex items-start justify-start gap-20">
                 <ul className="flex flex-col items-start gap-2">
-                  <h1 className="font-bold text-xl sm:text-2xl uppercase mb-2">TMBD</h1>
-                  <li className="font-semibold text-base sm:text-lg capitalize">For you</li>
-                  <li className="font-semibold text-base sm:text-lg capitalize">Movies</li>
-                  <li className="font-semibold text-base sm:text-lg capitalize">Tv shows</li>
-                  <li className="font-semibold text-base sm:text-lg capitalize">Free</li>
+                  <h1 className="font-bold text-xl sm:text-2xl uppercase mb-2">
+                    TMBD
+                  </h1>
+                  <li className="font-semibold text-base sm:text-lg capitalize">
+                    For you
+                  </li>
+                  <li className="font-semibold text-base sm:text-lg capitalize">
+                    Movies
+                  </li>
+                  <li className="font-semibold text-base sm:text-lg capitalize">
+                    Tv shows
+                  </li>
+                  <li className="font-semibold text-base sm:text-lg capitalize">
+                    Free
+                  </li>
                 </ul>
                 <ul className="flex flex-col items-start gap-2">
                   <h1 className="font-bold text-xl sm:text-2xl capitalize mb-2">
@@ -76,8 +86,10 @@ const Footer = () => {
             </div>
             <hr />
             <div className="w-full flex items-center justify-between gap-10 mt-10">
-               <span className="text-gray-400 text-sm">Copyright &copy; 2023 TMBD. All rights reserved.</span>
-              <BiMoviePlay className="bg-pink p-[6px] rounded-full text-4xl"/>
+              <span className="text-gray-400 text-sm">
+                Copyright &copy; 2023 TMBD. All rights reserved.
+              </span>
+              <BiMoviePlay className="bg-pink p-[6px] rounded-full text-4xl" />
             </div>
           </main>
         </ContentWrapper>

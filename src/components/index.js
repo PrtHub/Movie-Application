@@ -10,14 +10,14 @@ import Error from "./Error";
 import Loader from "./Loader";
 
 export {
-    Navbar,
-    Footer,
-    LazyImg,
-    MovieCard,
-    TabSwitch,
-    CircleRating,
-    PeopleCard,
-    SearchCard,
-    Error,
-    Loader
-}
+  Navbar,
+  Footer,
+  LazyImg,
+  MovieCard,
+  TabSwitch,
+  CircleRating,
+  PeopleCard,
+  SearchCard,
+  Error,
+  Loader,
+};

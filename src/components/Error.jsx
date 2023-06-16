@@ -1,10 +1,7 @@
-import ContentWrapper from "../Hoc/SectionWrapper"
-
+import ContentWrapper from "../Hoc/SectionWrapper";
 
 const Error = () => {
-  return (
-    <ContentWrapper>Something Went Wrong....</ContentWrapper>
-  )
-}
+  return <ContentWrapper>Something Went Wrong....</ContentWrapper>;
+};
 
-export default Error
+export default Error;

@@ -59,7 +59,7 @@ const NowPlaying = () => {
     );
   };
 
-  if(error) return <Error/>
+  if (error) return <Error />;
   return (
     <div className="w-full h-full py-10">
       <ContentWrapper>

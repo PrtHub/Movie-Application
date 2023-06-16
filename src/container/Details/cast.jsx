@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from "react-scroll";
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import avatar from "../../assets/cast.jpg";
 import { LazyImg } from "../../components";
@@ -45,8 +45,8 @@ const Cast = ({ casts, loading }) => {
                         e.preventDefault();
                         scroll.scrollToTop({
                           duration: 500,
-                           smooth: true
-                         });
+                          smooth: true,
+                        });
                         navigate(`/person/${cast.id}`);
                       }}
                     >
