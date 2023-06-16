@@ -38,7 +38,7 @@ const Favorite = () => {
           <div className="flex flex-wrap gap-5 mt-10">
             {contents.length === 0 ? (
               <p className="text-Primary text-base sm:text-lg">
-                Nothing added.
+                No Favorite item added.
               </p>
             ) : (
               contents.map((item) => (
@@ -59,6 +59,7 @@ const Favorite = () => {
                         }`}
                         onClick={() => {
                           dispatch(removeItem(item.id));
+                          setIsClicked(true)
                         }}
                       />
                     </span>
