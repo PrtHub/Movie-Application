@@ -8,7 +8,8 @@ import { useState } from "react";
 import VideoPopUp from "../../components/VideoPopUp";
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import { useDispatch } from "react-redux";
-import { addToFav } from "../../redux/favSlice";
+import { addToFav, removeItem } from "../../redux/favSlice";
+import { toast } from "react-toastify";
 
 const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const dispatch = useDispatch();
@@ -60,16 +61,26 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
     ?.map((s) => s.english_name)
     .splice(0, 2);
 
-  const handleToFav = () => {
-    setIsClicked((prevClicked) => !prevClicked);
-    dispatch(
-      addToFav({
-        id: details?.id,
-        img: `https://image.tmdb.org/t/p/original${details?.poster_path}`,
-        name: details?.title || details?.name,
-      })
-    );
-  };
+    const handleToFav = () => {
+      setIsClicked((prevClicked) => !prevClicked);
+    
+      if (isClicked) {
+        // Remove from favorites
+        dispatch(removeItem(details?.id));
+        toast.info("Content removed from favorites!");
+      } else {
+        // Add to favorites
+        dispatch(
+          addToFav({
+            id: details?.id,
+            img: `https://image.tmdb.org/t/p/original${details?.poster_path}`,
+            name: details?.title || details?.name,
+          })
+        );
+        toast.success("Content added to favorites!");
+      }
+    };
+    
 
   
 

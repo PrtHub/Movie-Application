@@ -38,7 +38,7 @@ const Favorite = () => {
           <div className="flex flex-wrap gap-5 mt-10">
             {contents.length === 0 ? (
               <p className="text-Primary text-base sm:text-lg">
-                No Favorite item added.
+                No favorite item found
               </p>
             ) : (
               contents.map((item) => (
