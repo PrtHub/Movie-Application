@@ -13,13 +13,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState(false);
   const [query, setQuery] = useState("");
- 
+
   const searchQueryHandler = (e) => {
     e.preventDefault();
-    if(e.key === "Enter" && query.length > 0) { 
+    if (e.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`);
     }
-  }
+  };
 
   const handleCategory = (category) => {
     setSelectedCategory(category);
@@ -35,7 +35,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-full bg-black flex justify-between items-center gap-10 py-5">
+      <nav
+        className={`w-full h-full bg-black flex justify-between items-center gap-10 py-5 
+        }`}
+      >
         <main className="w-full max-w-7xl mx-auto flex items-center justify-between gap-10 px-10">
           <section className="w-full flex items-center justify-start gap-10 sm:gap-14">
             <section className="font-bold text-2xl flex items-center gap-2">
@@ -154,7 +157,10 @@ const Navbar = () => {
                     >
                       People
                     </Link>
-                    <Link to="/favorite" className="font-semibold text-lg cursor-pointer">
+                    <Link
+                      to="/favorite"
+                      className="font-semibold text-lg cursor-pointer"
+                    >
                       Favorite
                     </Link>
                   </ul>
@@ -165,7 +171,11 @@ const Navbar = () => {
 
           <section className="hidden sm:flex items-center justify-center gap-5">
             <Link to="/favorite">
-            <MdFavoriteBorder className={`w-6 h-6 font-semibold cursor-pointer ${contents.length > 0 ? "text-red-500" : ""}`}/>
+              <MdFavoriteBorder
+                className={`w-6 h-6 font-semibold cursor-pointer ${
+                  contents.length > 0 ? "text-red-500" : ""
+                }`}
+              />
             </Link>
             <div className="relative hidden md:block">
               {search ? (
