@@ -3,10 +3,12 @@ import { BiMoviePlay } from "react-icons/bi";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [toggle, setToggle] = useState(false);
+  const contents = useSelector((state) => state.fav.contents);
 
   const navigate = useNavigate();
   const [search, setSearch] = useState(false);
@@ -163,7 +165,7 @@ const Navbar = () => {
 
           <section className="hidden sm:flex items-center justify-center gap-5">
             <Link to="/favorite">
-            <MdFavoriteBorder className="w-6 h-6 font-semibold cursor-pointer" />
+            <MdFavoriteBorder className={`w-6 h-6 font-semibold cursor-pointer ${contents.length > 0 ? "text-red-500" : ""}`}/>
             </Link>
             <div className="relative hidden md:block">
               {search ? (
