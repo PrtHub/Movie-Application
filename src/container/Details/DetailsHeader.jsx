@@ -7,8 +7,12 @@ import { MdFavorite } from "react-icons/md";
 import { useState } from "react";
 import VideoPopUp from "../../components/VideoPopUp";
 import ContentWrapper from "../../Hoc/SectionWrapper";
+import { useDispatch } from "react-redux";
+import { addToFav } from "../../redux/favSlice";
 
 const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
+  const dispatch = useDispatch();
+  const [isClicked, setIsClicked] = useState(false);
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
   // date
@@ -55,6 +59,19 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
   const language = details?.spoken_languages
     ?.map((s) => s.english_name)
     .splice(0, 2);
+
+  const handleToFav = () => {
+    setIsClicked((prevClicked) => !prevClicked);
+    dispatch(
+      addToFav({
+        id: details?.id,
+        img: `https://image.tmdb.org/t/p/original${details?.poster_path}`,
+        name: details?.title || details?.name,
+      })
+    );
+  };
+
+  
 
   return (
     <>
@@ -129,11 +146,18 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                       })}
                     />
                   </div>
-                  <span className="font-semibold text-base sm:text-lg">User Rating</span>
+                  <span className="font-semibold text-base sm:text-lg">
+                    User Rating
+                  </span>
                 </section>
 
                 <span className="flex items-center gap-1 font-medium text-base sm:text-lg">
-                  <MdFavorite className="bg-[#081c22] text-3xl sm:text-4xl p-1 sm:p-2 rounded-full cursor-pointer " />
+                  <MdFavorite
+                    className={`bg-[#081c22] text-3xl sm:text-4xl p-1 sm:p-2 rounded-full cursor-pointer ${
+                      isClicked ? "text-red-500" : ""
+                    }`}
+                    onClick={handleToFav}
+                  />
                   Favorite
                 </span>
                 <span
@@ -153,7 +177,9 @@ const DetailsHeader = ({ details, platforms, crew, loading, video }) => {
                 </p>
                 <div className="flex flex-col gap-2 pr-10">
                   <h1 className="text-2xl font-semibold">Overview</h1>
-                  <p className="w-full max-w-7xl text-base font-normal">{details.overview}</p>
+                  <p className="w-full max-w-7xl text-base font-normal">
+                    {details.overview}
+                  </p>
                 </div>
               </article>
               <section className="w-full">

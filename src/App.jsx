@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { Footer, Navbar } from "./components";
-import { Home, People, Search, PeopleDetails, MovieDetails, TvDetails } from "./pages";
+import { Home, People, Search, PeopleDetails, MovieDetails, TvDetails, Favorite } from "./pages";
 import { NowPlaying, Popular, TopRated, Upcoming } from "./pages/Movie";
 import { AiringToday, OnAir, PopularTv, TopTv } from "./pages/Tv";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
@@ -27,8 +29,21 @@ const App = () => {
             <Route path="/search/:query" element={<Search />} />
             <Route path="/person/popular" element={<People />} />
             <Route path="/person/:person_id" element={<PeopleDetails />} />
+            <Route path="/favorite" element={<Favorite/>} />
           </Routes>
         <Footer />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </section>
     </>
   );

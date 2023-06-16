@@ -152,9 +152,9 @@ const Navbar = () => {
                     >
                       People
                     </Link>
-                    <li className="font-semibold text-lg cursor-pointer">
+                    <Link to="/favorite" className="font-semibold text-lg cursor-pointer">
                       Favorite
-                    </li>
+                    </Link>
                   </ul>
                 </>
               )}
@@ -162,7 +162,9 @@ const Navbar = () => {
           </section>
 
           <section className="hidden sm:flex items-center justify-center gap-5">
+            <Link to="/favorite">
             <MdFavoriteBorder className="w-6 h-6 font-semibold cursor-pointer" />
+            </Link>
             <div className="relative hidden md:block">
               {search ? (
                 <section className="flex items-center gap-2">
