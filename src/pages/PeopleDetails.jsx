@@ -65,7 +65,7 @@ const PeopleDetails = () => {
                   </p>
                 </section>
                 <article className="w-full flex flex-col items-start gap-2 pr-10">
-                  <h1 className="text-3xl font-semibold">Biography</h1>
+                  <h1 className="textheader">Biography</h1>
                   <p className="w-full max-w-7xl text-base font-normal ">
                     {people && biography}
                   </p>
@@ -89,7 +89,7 @@ const PeopleDetails = () => {
             </main>
             <div className="w-full h-full flex flex-col gap-10">
               <section className="w-full flex items-center gap-10">
-                <h1 className="text-2xl sm:text-3xl font-semibold">
+                <h1 className="textheader">
                   Known For
                 </h1>
               </section>

@@ -30,7 +30,7 @@ const TrendingTv = () => {
       <ContentWrapper>
         <div className="w-full h-full py-10 flex flex-col gap-10">
           <section className="w-full flex items-center gap-10">
-            <h1 className="text-2xl sm:text-3xl font-semibold">
+            <h1 className="textheader">
               Trending Tv Shows
             </h1>
             <TabSwitch onTabChange={handleTabChange} />

@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 
-
+.textheader{
+    @apply text-2xl sm:text-3xl font-semibold
+}
 

@@ -13,7 +13,7 @@ const Reviews = ({ reviews, loading }) => {
     <ContentWrapper>
       {!loading ? (
         <section className="w-full h-full flex flex-col items-start gap-10 relative">
-          <h1 className="text-2xl sm:text-3xl font-semibold">Reviews</h1>
+          <h1 className="textheader">Reviews</h1>
           <main className="w-full h-full flex flex-row gap-10 overflow-x-scroll">
             {reviews?.results?.map((review) => (
               <div
