@@ -31,9 +31,7 @@ const TrendingMovie = () => {
       <ContentWrapper>
         <div className="w-full h-full py-10 flex flex-col gap-10">
           <section className="w-full flex items-center gap-10">
-            <h1 className="textheader">
-              Trending Movies
-            </h1>
+            <h1 className="textheader">Trending Movies</h1>
             <TabSwitch onTabChange={handleTabChange} />
           </section>
           {!isFetching ? (

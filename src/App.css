@@ -75,5 +75,25 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.1rem;
+  height: 0.1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.15rem;
+  /* background: transparent; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 /* button #d9008d  */
 /* skeleton #262728 */
