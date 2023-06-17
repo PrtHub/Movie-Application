@@ -40,7 +40,7 @@ const MovieCard = ({ Media }) => {
               poster
             }
             alt="Poster"
-            className="w-full h-full object-contain object-center rounded"
+            className="w-full h-full object-cover object-center rounded"
           />
           <CircleRating rating={Media.vote_average.toFixed(1)} />
         </section>
