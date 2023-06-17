@@ -84,7 +84,7 @@ const MovieDetails = () => {
                 video={videos?.results?.[0]}
               />
               {credits?.cast && credits?.cast.length > 0 ? (
-                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                <section className="py-10 flex flex-row gap-5">
                   <Cast casts={credits?.cast} loading={castLoading} />
                 </section>
               ) : (
@@ -93,24 +93,24 @@ const MovieDetails = () => {
                 </>
               )}
 
-              <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+              <section className="py-10 flex flex-row gap-5">
                 <VideoClips videos={videos} loading={videosLoading} />
               </section>
 
               {reviews && reviews.results.length > 0 && (
-                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                <section className="py-10 flex flex-row gap-5">
                   <Reviews reviews={reviews} loading={reviewsLoading} />
                 </section>
               )}
               {similars && similars?.results?.length > 0 ? (
-                <section className="py-10  flex flex-row gap-5 overflow-x-scroll">
+                <section className="py-10  flex flex-row gap-5">
                   <Similar similars={similars} loading={similarsLoading} />
                 </section>
               ) : (
                 <ContentWrapper>Not Available</ContentWrapper>
               )}
               {recommends && recommends?.results?.length > 0 ? (
-                <section className="py-10 flex flex-row gap-5 overflow-x-scroll">
+                <section className="py-10 flex flex-row gap-5">
                   <Recommend
                     recommends={recommends}
                     loading={recommendsLoading}
