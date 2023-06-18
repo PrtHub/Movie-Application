@@ -27,6 +27,8 @@ const MovieCard = ({ Media }) => {
     }
   };
 
+  const imgUrl = Media?.poster_path ? `https://image.tmdb.org/t/p/original${Media.poster_path}` : poster
+
   return (
     <>
       <main className="w-36 h-full flex flex-col items-start justify-start gap-5">
@@ -35,10 +37,7 @@ const MovieCard = ({ Media }) => {
           onClick={handleClick}
         >
           <LazyImg
-            src={
-              `https://image.tmdb.org/t/p/original${Media.poster_path}` ||
-              poster
-            }
+            src={imgUrl}
             alt="Poster"
             className="w-full h-full object-cover object-center rounded"
           />

@@ -26,6 +26,8 @@ const KnownFor = ({ movie, isLoading }) => {
     }
   };
 
+  const imgUrl = movie?.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : poster
+
   const skeleton = () => {
     return (
       <main className="w-40 h-60 animate-pulse flex flex-col items-center justify-center gap-2">
@@ -47,10 +49,7 @@ const KnownFor = ({ movie, isLoading }) => {
             onClick={handleClick}
           >
             <LazyImg
-              src={
-                `https://image.tmdb.org/t/p/original${movie.poster_path}` ||
-                poster
-              }
+              src={imgUrl}
               alt="Poster"
               className="w-full h-full object-contain object-center rounded"
             />
