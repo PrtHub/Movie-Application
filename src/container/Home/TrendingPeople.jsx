@@ -44,7 +44,7 @@ const TrendingPeople = () => {
               ))}
             </main>
           ) : (
-            <div className="w-full h-60 gap-2 flex flex-wrap overflow-x-scroll">
+            <div className="w-full h-60 gap-2 flex flex-wrap overflow-x-scroll  overflow-y-hidden">
               {skeleton()}
               {skeleton()}
               {skeleton()}

@@ -62,7 +62,7 @@ const KnownFor = ({ movie, isLoading }) => {
           </section>
         </div>
       ) : (
-        <div className="w-full h-full flex flex-wrap justify-center overflow-x-hidden px-5 gap-5">
+        <div className="w-full h-full flex flex-wrap justify-center overflow-hidden px-5 gap-5">
           {skeleton()}
           {skeleton()}
           {skeleton()}
