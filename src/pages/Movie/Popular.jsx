@@ -72,7 +72,7 @@ const Popular = () => {
   
   return (
     <>
-    <SEO title="Now Playing Movies - The Movie Database (TMDB)"/>
+    <SEO title="Popular Movies - The Movie Database (TMDB)"/>
     <div className="w-full h-full py-10">
       <ContentWrapper>
         <section className="w-full h-full flex items-center justify-end mb-10 px-10">
