@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Error, Loader, MovieCard } from "../../components";
+import { Error, Loader, MovieCard, SEO } from "../../components";
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import {
   useGetGenresDataQuery,
@@ -71,6 +71,8 @@ const Popular = () => {
   if (error) return <Error />;
   
   return (
+    <>
+    <SEO title="Now Playing Movies - The Movie Database (TMDB)"/>
     <div className="w-full h-full py-10">
       <ContentWrapper>
         <section className="w-full h-full flex items-center justify-end mb-10 px-10">
@@ -122,6 +124,7 @@ const Popular = () => {
         </InfiniteScroll>
       </ContentWrapper>
     </div>
+    </>
   )
 }
 

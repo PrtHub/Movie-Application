@@ -6,6 +6,7 @@ import CircleRating from "./CircleRating";
 import LazyImg from "./LazyImg";
 import poster from "../assets/poster.jpg";
 
+
 const MovieCard = ({ Media }) => {
   const navigate = useNavigate();
   const formatDate = (dateStr) => {
