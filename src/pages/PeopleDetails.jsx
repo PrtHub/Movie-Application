@@ -4,7 +4,7 @@ import {
   useGetPeopleDetailsQuery,
 } from "../redux/TMDB";
 import ContentWrapper from "../Hoc/SectionWrapper";
-import { LazyImg } from "../components";
+import { LazyImg, SEO } from "../components";
 import { useState } from "react";
 import { KnownFor } from "../container";
 
@@ -43,6 +43,7 @@ const PeopleDetails = () => {
 
   return (
     <>
+     <SEO title={`${people?.name} - The Movie Database (TMDB)`}/>
       {!isFetching ? (
         <ContentWrapper>
           <div className="w-full h-full max-w-7xl mx-auto mt-10 mb-20">

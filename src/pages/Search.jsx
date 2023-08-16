@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { useGetSearchMultiQuery } from "../redux/TMDB";
-import { Error, Loader, SearchCard } from "../components";
+import { Error, Loader, SEO, SearchCard } from "../components";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
 import Select from "react-select";
@@ -70,6 +70,7 @@ const Search = () => {
 
   return (
     <>
+    <SEO title={`${query} - The Movie Database (TMDB)`}/>
       <div className="w-full h-full py-10">
         <ContentWrapper>
           <section className="w-full h-full flex items-center justify-end mb-10 px-10">

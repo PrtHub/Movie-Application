@@ -1,5 +1,5 @@
 import ContentWrapper from "../Hoc/SectionWrapper";
-import { Error } from "../components";
+import { Error, SEO } from "../components";
 import {
   Cast,
   DetailsHeader,
@@ -73,6 +73,7 @@ const MovieDetails = () => {
 
   return (
     <>
+    <SEO title={`${details?.title || details?.name} - The Movie Database (TMDB)`}/>
       {!isFetching ? (
         <>
           {details && (

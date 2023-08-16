@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import ContentWrapper from "../Hoc/SectionWrapper";
-import { LazyImg } from "../components";
+import { LazyImg, SEO } from "../components";
 import { useState } from "react";
 import { MdFavorite } from "react-icons/md";
 import { removeItem, resetList } from "../redux/favSlice";
@@ -22,6 +22,7 @@ const Favorite = () => {
 
   return (
     <>
+    <SEO title="Wishlist - The Movie Database (TMDB)"/>
       <div className="w-full h-full py-10">
         <ContentWrapper>
           <div className="w-full flex justify-between items-center">

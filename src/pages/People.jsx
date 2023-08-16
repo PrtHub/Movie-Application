@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Error, Loader, PeopleCard } from "../components";
+import { Error, Loader, PeopleCard, SEO } from "../components";
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { useGetPopularPeopleQuery } from "../redux/TMDB";
 
@@ -34,6 +34,8 @@ const People = () => {
   if (error) return <Error />;
 
   return (
+    <>
+    <SEO title={` Popular People - The Movie Database (TMDB)`}/>
     <div className="w-full h-full py-10">
       <ContentWrapper>
         <InfiniteScroll
@@ -70,6 +72,7 @@ const People = () => {
         </InfiniteScroll>
       </ContentWrapper>
     </div>
+    </>
   );
 };
 

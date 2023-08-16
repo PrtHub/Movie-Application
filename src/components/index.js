@@ -8,6 +8,7 @@ import PeopleCard from "./PeopleCard";
 import SearchCard from "./SearchCard";
 import Error from "./Error";
 import Loader from "./Loader";
+import SEO from "./SEO";
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   SearchCard,
   Error,
   Loader,
+  SEO
 };
