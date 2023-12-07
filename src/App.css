@@ -87,11 +87,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 0.15rem;
-  /* background: transparent; */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+  background: transparent;
 }
 
 
