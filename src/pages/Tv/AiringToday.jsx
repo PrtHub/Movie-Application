@@ -7,6 +7,7 @@ import {
 } from "../../redux/TMDB";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
+import TvSkeleton from "../../components/skeletons/TvSkeleton";
 
 const NowPlaying = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -47,18 +48,6 @@ const NowPlaying = () => {
     }
   }, [genre]);
 
-  const skeleton = () => {
-    return (
-      <main className="w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
-        <div className="w-full h-full bg-skeleton rounded " />
-        <section className="w-full flex flex-col gap-2 ">
-          <div className="w-full h-4 bg-skeleton rounded" />
-          <div className="w-[80%] h-4 bg-skeleton rounded" />
-        </section>
-      </main>
-    );
-  };
-
   if (error) return <Error />;
   return (
     <>
@@ -96,19 +85,21 @@ const NowPlaying = () => {
             </div>
           ) : (
             <div className="w-full h-full flex flex-wrap justify-center overflow-x-hidden px-5 gap-5">
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
+              <TvSkeleton/>
             </div>
           )}
         </InfiniteScroll>

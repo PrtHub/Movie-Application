@@ -5,6 +5,7 @@ import { Error, Loader, SEO, SearchCard } from "../components";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
 import Select from "react-select";
+import SearchSkeleton from "../components/skeletons/SearchSkeleton";
 
 const categories = [
   { name: "People", media_type: "person" },
@@ -56,18 +57,6 @@ const Search = () => {
 
   if (error) return <Error />;
 
-  const skeleton = () => {
-    return (
-      <main className="w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
-        <div className="w-full h-full bg-skeleton rounded " />
-        <section className="w-full flex flex-col gap-2 ">
-          <div className="w-full h-4 bg-skeleton rounded" />
-          <div className="w-[80%] h-4 bg-skeleton rounded" />
-        </section>
-      </main>
-    );
-  };
-
   return (
     <>
     <SEO title={`${query} - The Movie Database (TMDB)`}/>
@@ -104,19 +93,18 @@ const Search = () => {
               </div>
             ) : (
               <div className="w-full h-full flex flex-wrap justify-center overflow-x-hidden px-5 gap-5">
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
-                {skeleton()}
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
+               <SearchSkeleton/>
               </div>
             )}
           </InfiniteScroll>

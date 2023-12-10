@@ -3,6 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Error, Loader, PeopleCard, SEO } from "../components";
 import ContentWrapper from "../Hoc/SectionWrapper";
 import { useGetPopularPeopleQuery } from "../redux/TMDB";
+import PeopleSkeleton from "../components/skeletons/PeopleSkeleton";
 
 const People = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -17,18 +18,6 @@ const People = () => {
 
   const fetchNextPage = () => {
     setPageNum((prevPageNum) => prevPageNum + 1);
-  };
-
-  const skeleton = () => {
-    return (
-      <main className="w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
-        <div className="w-full h-full bg-skeleton rounded " />
-        <section className="w-full flex flex-col gap-2 ">
-          <div className="w-full h-4 bg-skeleton rounded" />
-          <div className="w-[80%] h-4 bg-skeleton rounded" />
-        </section>
-      </main>
-    );
   };
 
   if (error) return <Error />;
@@ -54,19 +43,7 @@ const People = () => {
             </div>
           ) : (
             <div className="w-full h-full flex flex-wrap justify-center overflow-x-hidden px-5 gap-5">
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
+             <PeopleSkeleton/>
             </div>
           )}
         </InfiniteScroll>
