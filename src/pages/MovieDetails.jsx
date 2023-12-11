@@ -1,4 +1,3 @@
-import ContentWrapper from "../Hoc/SectionWrapper";
 import { Error, SEO } from "../components";
 import { Details } from "../components/skeletons";
 import {
@@ -42,60 +41,46 @@ const MovieDetails = () => {
 
   if (error) return <Error />;
 
+  if (isFetching) return <Details />;
+
   return (
     <>
-    <SEO title={`${details?.title || details?.name} - The Movie Database (TMDB)`}/>
-      {!isFetching ? (
-        <>
-          {details && (
-            <div className="w-full h-full mt-10 mb-20">
-              <DetailsHeader
-                details={details}
-                platforms={platforms?.results?.IN}
-                crew={credits?.crew}
-                video={videos?.results?.[0]}
-              />
-              {credits?.cast && credits?.cast.length > 0 ? (
-                <section className="py-10 flex flex-row gap-5">
-                  <Cast casts={credits?.cast} loading={castLoading} />
-                </section>
-              ) : (
-                <>
-                  <ContentWrapper>No Cast Available </ContentWrapper>
-                </>
-              )}
-
-              <section className="py-10 flex flex-row gap-5">
-                <VideoClips videos={videos} loading={videosLoading} />
-              </section>
-
-              {reviews && reviews.results.length > 0 && (
-                <section className="py-10 flex flex-row gap-5">
-                  <Reviews reviews={reviews} loading={reviewsLoading} />
-                </section>
-              )}
-              {similars && similars?.results?.length > 0 ? (
-                <section className="py-10  flex flex-row gap-5">
-                  <Similar similars={similars} loading={similarsLoading} />
-                </section>
-              ) : (
-                <ContentWrapper>Not Available</ContentWrapper>
-              )}
-              {recommends && recommends?.results?.length > 0 ? (
-                <section className="py-10 flex flex-row gap-5">
-                  <Recommend
-                    recommends={recommends}
-                    loading={recommendsLoading}
-                  />
-                </section>
-              ) : (
-                <ContentWrapper>No Recomandation Available</ContentWrapper>
-              )}
-            </div>
+      <SEO
+        title={`${details?.title || details?.name} - The Movie Database (TMDB)`}
+      />
+      {details && (
+        <div className="w-full h-full mt-10 mb-20">
+          <DetailsHeader
+            details={details}
+            platforms={platforms?.results?.IN}
+            crew={credits?.crew}
+            video={videos?.results?.[0]}
+          />
+          {credits?.cast && credits?.cast.length > 0 && (
+            <section className="py-10 flex flex-row gap-5">
+              <Cast casts={credits?.cast} loading={castLoading} />
+            </section>
           )}
-        </>
-      ) : (
-        <div><Details/></div>
+          <section className="py-10 flex flex-row gap-5">
+            <VideoClips videos={videos} loading={videosLoading} />
+          </section>
+
+          {reviews && reviews.results.length > 0 && (
+            <section className="py-10 flex flex-row gap-5">
+              <Reviews reviews={reviews} loading={reviewsLoading} />
+            </section>
+          )}
+          {similars && similars?.results?.length > 0 && (
+            <section className="py-10  flex flex-row gap-5">
+              <Similar similars={similars} loading={similarsLoading} />
+            </section>
+          )}
+          {recommends && recommends?.results?.length > 0 && (
+            <section className="py-10 flex flex-row gap-5">
+              <Recommend recommends={recommends} loading={recommendsLoading} />
+            </section>
+          )}
+        </div>
       )}
     </>
   );
