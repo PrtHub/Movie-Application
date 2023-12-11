@@ -4,6 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { LazyImg } from "../../components";
 import poster from "../../assets/poster.jpg";
 import { useNavigate } from "react-router-dom";
+import MovieSkeleton from "../../components/skeletons/MovieSkeleton";
 
 const KnownFor = ({ movie, isLoading }) => {
   const navigate = useNavigate();
@@ -26,19 +27,9 @@ const KnownFor = ({ movie, isLoading }) => {
     }
   };
 
-  const imgUrl = movie?.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : poster
-
-  const skeleton = () => {
-    return (
-      <main className="w-40 h-60 animate-pulse flex flex-col items-center justify-center gap-2">
-        <div className="w-full h-full bg-skeleton rounded " />
-        <section className="w-full flex flex-col gap-2 animate-pulse">
-          <div className="w-full h-4 bg-skeleton rounded" />
-          <div className="w-[80%] h-4 bg-skeleton rounded" />
-        </section>
-      </main>
-    );
-  };
+  const imgUrl = movie?.poster_path
+    ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+    : poster;
 
   return (
     <>
@@ -63,23 +54,25 @@ const KnownFor = ({ movie, isLoading }) => {
         </div>
       ) : (
         <div className="w-full h-full flex flex-wrap justify-center overflow-hidden px-5 gap-5">
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
-          {skeleton()}
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
+          <MovieSkeleton />
         </div>
       )}
     </>

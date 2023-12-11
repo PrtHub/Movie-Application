@@ -3,6 +3,7 @@ import { useGetMovieQuery } from "../../redux/TMDB";
 import { useNavigate } from "react-router-dom";
 import { LazyImg } from "../../components";
 import ContentWrapper from "../../Hoc/SectionWrapper";
+import HeroSkeleton from "../../components/skeletons/HeroSkeleton";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -27,16 +28,6 @@ const Hero = () => {
     if (query.length > 0) {
       navigate(`/search/${query}`);
     }
-  };
-
-  const skeleton = () => {
-    return (
-      <main className="w-full h-[450px] md:h-[500px] bg-skeleton animate-pulse flex-shrink-0 overflow-hidden">
-        <section className="h-full w-full bg-[#3f3f3f]">
-          <section className="h-full w-full absolute left-0 animate-slide" />
-        </section>
-      </main>
-    );
   };
 
   return (
@@ -84,7 +75,9 @@ const Hero = () => {
             </ContentWrapper>
           </>
         ) : (
-          <div>{skeleton()}</div>
+          <div>
+            <HeroSkeleton />
+          </div>
         )}
       </header>
     </>

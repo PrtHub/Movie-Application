@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGetTrendingMovieQuery } from "../../redux/TMDB";
 import ContentWrapper from "../../Hoc/SectionWrapper";
 import { Error, MovieCard, TabSwitch } from "../../components";
+import TrendingSkeleton from "../../components/skeletons/TrendingSkeleton";
 
 const TrendingMovie = () => {
   const [time, setTime] = useState("day");
@@ -10,18 +11,6 @@ const TrendingMovie = () => {
 
   const handleTabChange = (tab) => {
     setTime(tab);
-  };
-
-  const skeleton = () => {
-    return (
-      <main className="w-36 sm:w-40 h-60  animate-pulse flex flex-col items-center justify-center gap-2">
-        <div className="w-full h-full bg-skeleton rounded " />
-        <section className="w-full flex flex-col gap-2 ">
-          <div className="w-full h-4 bg-skeleton rounded" />
-          <div className="w-[80%] h-4 bg-skeleton rounded" />
-        </section>
-      </main>
-    );
   };
 
   if (error) return <Error />;
@@ -44,17 +33,18 @@ const TrendingMovie = () => {
             </main>
           ) : (
             <div className="w-full h-60 gap-2 flex flex-wrap overflow-y-hidden overflow-x-scroll">
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
-              {skeleton()}
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
+              <TrendingSkeleton/>
             </div>
           )}
         </div>
